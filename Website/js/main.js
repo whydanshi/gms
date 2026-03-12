@@ -1,0 +1,159 @@
+document.addEventListener('DOMContentLoaded', () => {
+  initHeroAnimation();
+  initNavbar();
+  initMobileMenu();
+  initScrollReveal();
+  initCounters();
+});
+
+function initHeroAnimation() {
+  const hero = document.getElementById('hero');
+  if (!hero) return;
+
+  const line1 = hero.querySelector('.hero__heading .line1');
+  const line2 = hero.querySelector('.hero__heading .line2');
+  if (!line1 || !line2) return;
+
+  function getTextCenter(el) {
+    const range = document.createRange();
+    range.selectNodeContents(el);
+    const rect = range.getBoundingClientRect();
+    return rect.left + rect.width / 2;
+  }
+
+  // Phase 1: set starting positions
+  // Movement starts centered
+  line1.style.textAlign = 'center';
+  line1.style.paddingLeft = '0';
+  // Redefined starts flush left
+  line2.style.textAlign = 'left';
+  line2.style.paddingLeft = '0';
+
+  line1.style.opacity = '1';
+  line2.style.opacity = '1';
+
+  setTimeout(() => {
+    // Measure starting text center positions
+    const start1 = getTextCenter(line1);
+    const start2 = getTextCenter(line2);
+
+    // Switch to final CSS state
+    line1.style.textAlign = '';
+    line1.style.paddingLeft = '';
+    line2.style.textAlign = '';
+    line2.style.paddingLeft = '';
+
+    // Measure final text center positions
+    const end1 = getTextCenter(line1);
+    const end2 = getTextCenter(line2);
+
+    const dx1 = start1 - end1;
+    const dx2 = start2 - end2;
+
+    // Snap to starting position via transform
+    line1.style.transition = 'none';
+    line2.style.transition = 'none';
+    line1.style.transform = 'translateX(' + dx1 + 'px)';
+    line2.style.transform = 'translateX(' + dx2 + 'px)';
+
+    void line1.offsetHeight;
+
+    // Animate to final position
+    const ease = 'transform 1.1s cubic-bezier(0.22, 1, 0.36, 1)';
+    line1.style.transition = ease;
+    line2.style.transition = ease;
+    line1.style.transform = 'translateX(0)';
+    line2.style.transform = 'translateX(0)';
+
+    hero.classList.add('hero--final');
+  }, 1200);
+}
+
+function initNavbar() {
+  const navbar = document.querySelector('.navbar');
+  const logoImg = navbar?.querySelector('.navbar__logo img');
+  if (!navbar) return;
+
+  const onScroll = () => {
+    const scrolled = window.scrollY > 60;
+    navbar.classList.toggle('navbar--scrolled', scrolled);
+    if (logoImg) {
+      logoImg.src = scrolled
+        ? 'assets/GMS-logo.svg'
+        : 'assets/GMS-logo-white.svg';
+    }
+  };
+
+  window.addEventListener('scroll', onScroll, { passive: true });
+  onScroll();
+}
+
+function initMobileMenu() {
+  const hamburger = document.querySelector('.navbar__hamburger');
+  const mobileNav = document.querySelector('.mobile-nav');
+  if (!hamburger || !mobileNav) return;
+
+  const toggle = () => {
+    hamburger.classList.toggle('active');
+    mobileNav.classList.toggle('open');
+    document.body.style.overflow = mobileNav.classList.contains('open') ? 'hidden' : '';
+  };
+
+  hamburger.addEventListener('click', toggle);
+  mobileNav.querySelectorAll('a').forEach(link => {
+    link.addEventListener('click', () => {
+      hamburger.classList.remove('active');
+      mobileNav.classList.remove('open');
+      document.body.style.overflow = '';
+    });
+  });
+}
+
+function initScrollReveal() {
+  const reveals = document.querySelectorAll('.reveal');
+  if (!reveals.length) return;
+
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        entry.target.classList.add('visible');
+        observer.unobserve(entry.target);
+      }
+    });
+  }, { threshold: 0.15, rootMargin: '0px 0px -40px 0px' });
+
+  reveals.forEach(el => observer.observe(el));
+}
+
+function initCounters() {
+  const counters = document.querySelectorAll('[data-count]');
+  if (!counters.length) return;
+
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        animateCounter(entry.target);
+        observer.unobserve(entry.target);
+      }
+    });
+  }, { threshold: 0.5 });
+
+  counters.forEach(el => observer.observe(el));
+}
+
+function animateCounter(el) {
+  const target = parseInt(el.dataset.count, 10);
+  const suffix = el.dataset.suffix || '';
+  const duration = 2000;
+  const start = performance.now();
+
+  function update(now) {
+    const elapsed = now - start;
+    const progress = Math.min(elapsed / duration, 1);
+    const eased = 1 - Math.pow(1 - progress, 3);
+    el.textContent = Math.round(eased * target).toLocaleString() + suffix;
+    if (progress < 1) requestAnimationFrame(update);
+  }
+
+  requestAnimationFrame(update);
+}
