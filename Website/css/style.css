@@ -1119,11 +1119,19 @@ p {
 }
 
 .about-airplane {
-  display: block;
-  max-width: 600px;
-  width: 50%;
+  position: absolute;
+
+  width: 42%;
+  max-width: 720px;
   height: auto;
+
+  bottom: 10px;
+  left: 360px;
+
   mix-blend-mode: screen;
+  filter: brightness(1.1);
+
+  pointer-events: none;
 }
 
 /* 4-column service grid variant */
