@@ -8,7 +8,7 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;1,400;1,600&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="css/style.css?v=7">
 </head>
 <body>
 
@@ -45,8 +45,16 @@
   <!-- Hero — Inset with white border, fully rounded -->
   <div class="hero-wrapper">
     <section class="hero" id="hero">
-      <div class="hero__bg">
-        <img src="assets/ocean-hero.png" alt="Deep blue ocean aerial view">
+      <div class="hero__bg hero-carousel">
+        <div class="hero-carousel__slide hero-carousel__slide--active" data-slide="0">
+          <img src="assets/hero-carousel-1.png" alt="Cargo ship aerial view">
+        </div>
+        <div class="hero-carousel__slide hero-carousel__slide--gradient" data-slide="1">
+          <img src="assets/hero-carousel-2.png" alt="Freight train containers">
+        </div>
+        <div class="hero-carousel__slide hero-carousel__slide--gradient" data-slide="2">
+          <img src="assets/hero-carousel-3.png" alt="Air freight and containers">
+        </div>
       </div>
       <div class="hero__content">
         <h1 class="hero__heading">
@@ -208,14 +216,14 @@
         <div class="cta-banner__collage">
           <div class="collage">
             <div class="collage__tall">
-              <img src="https://images.unsplash.com/photo-1494412574643-ff11b0a5eb19?auto=format&fit=crop&w=600&q=80" alt="Container ship aerial view">
+              <img src="https://images.unsplash.com/photo-1586528116311-ad8dd3c8310d?auto=format&fit=crop&w=600&q=80" alt="Shipping containers stacked at port">
             </div>
             <div class="collage__stack">
               <div class="collage__img">
-                <img src="https://images.unsplash.com/photo-1586528116311-ad8dd3c8310d?auto=format&fit=crop&w=400&q=80" alt="Cargo containers">
+                <img src="https://images.unsplash.com/photo-1578575437130-527eed3abbec?auto=format&fit=crop&w=400&q=80" alt="Cargo ship at sea">
               </div>
               <div class="collage__img">
-                <img src="https://images.unsplash.com/photo-1578575437130-527eed3abbec?auto=format&fit=crop&w=400&q=80" alt="Freight ship at sea">
+                <img src="https://images.unsplash.com/photo-1553413077-190dd305871c?auto=format&fit=crop&w=400&q=80" alt="Warehouse logistics">
               </div>
             </div>
           </div>
@@ -227,11 +235,11 @@
   <!-- Footer -->
   <footer class="footer">
     <div class="container">
+      <a href="index.html" class="footer__logo-big" aria-label="GMS Home">
+        <img src="assets/GMS-logo.svg" alt="GMS">
+      </a>
       <div class="footer__grid">
         <div class="footer__brand">
-          <a href="index.html" class="navbar__logo" aria-label="GMS Home">
-            <img src="assets/GMS-logo-white.svg" alt="GMS" style="height: 52px; opacity: 0.6;">
-          </a>
           <p>Leading the global relocation industry with unmatched integrity and unrivaled expertise in international mobility services.</p>
         </div>
         <div>
@@ -285,6 +293,6 @@
     </div>
   </footer>
 
-  <script src="js/main.js"></script>
+  <script src="js/main.js?v=7"></script>
 </body>
 </html>

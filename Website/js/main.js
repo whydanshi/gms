@@ -1,10 +1,37 @@
 document.addEventListener('DOMContentLoaded', () => {
   initHeroAnimation();
+  initHeroCarousel();
   initNavbar();
   initMobileMenu();
   initScrollReveal();
   initCounters();
 });
+
+function initHeroCarousel() {
+  const carousel = document.querySelector('.hero-carousel');
+  if (!carousel) return;
+
+  const slides = carousel.querySelectorAll('.hero-carousel__slide');
+  if (slides.length < 2) return;
+
+  let current = 0;
+
+  function advance() {
+    var prev = current;
+    current = (current + 1) % slides.length;
+
+    slides[prev].classList.remove('hero-carousel__slide--active');
+    slides[prev].classList.add('hero-carousel__slide--exiting');
+
+    slides[current].classList.add('hero-carousel__slide--active');
+
+    setTimeout(function () {
+      slides[prev].classList.remove('hero-carousel__slide--exiting');
+    }, 1500);
+  }
+
+  setInterval(advance, 5000);
+}
 
 function initHeroAnimation() {
   const hero = document.getElementById('hero');
@@ -74,8 +101,14 @@ function initNavbar() {
   const logoImg = navbar?.querySelector('.navbar__logo img');
   if (!navbar) return;
 
+  const hasHero = !!document.querySelector('.hero-wrapper, .hero');
+  if (!hasHero) {
+    navbar.classList.add('navbar--scrolled');
+    if (logoImg) logoImg.src = 'assets/GMS-logo.svg';
+  }
+
   const onScroll = () => {
-    const scrolled = window.scrollY > 60;
+    const scrolled = !hasHero || window.scrollY > 60;
     navbar.classList.toggle('navbar--scrolled', scrolled);
     if (logoImg) {
       logoImg.src = scrolled
