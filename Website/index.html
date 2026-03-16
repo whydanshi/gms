@@ -25,7 +25,7 @@
         <a href="contact.html">Contact Us</a>
       </div>
       <div class="navbar__cta">
-        <a href="get-a-quote.html" class="btn btn--primary">Get a Quote</a>
+        <a href="get-a-quote.html" class="btn btn--primary" data-quote-trigger>Get a Quote</a>
       </div>
       <button class="navbar__hamburger" aria-label="Toggle menu">
         <span></span><span></span><span></span>
@@ -39,7 +39,7 @@
     <a href="services.html">Services</a>
     <a href="global-network.html">Global Network</a>
     <a href="contact.html">Contact Us</a>
-    <a href="get-a-quote.html" class="btn btn--primary" style="margin-top: 12px;">Get a Quote</a>
+    <a href="get-a-quote.html" class="btn btn--primary" style="margin-top: 12px;" data-quote-trigger>Get a Quote</a>
   </div>
 
   <!-- Hero — Inset with white border, fully rounded -->
@@ -83,7 +83,7 @@
           <div class="hero__meta">
             <p class="hero__subtitle">Professional relocation and freight forwarding solutions for corporates, expats and new pathways to India.</p>
             <div class="hero__actions">
-              <a href="get-a-quote.html" class="btn btn--red">Get a Quote</a>
+              <a href="get-a-quote.html" class="btn btn--red" data-quote-trigger>Get a Quote</a>
             </div>
           </div>
         </div>
@@ -208,10 +208,10 @@
     <div class="container">
       <div class="cta-banner__split reveal">
         <div class="cta-banner__text">
-          <span class="label" style="color: rgba(255,255,255,0.5);">Get Started</span>
+          <span class="label" style="color: rgba(255,255,255,0.5);">Get a Quote</span>
           <h2>Ready to start your journey with GMS?</h2>
           <p>Get in touch with our mobility experts for a professional consultation tailored to your corporate needs.</p>
-          <a href="contact.html" class="btn btn--white">Contact Our Team</a>
+          <a href="get-a-quote.html" class="btn btn--white" data-quote-trigger>Get a Quote</a>
         </div>
         <div class="cta-banner__collage">
           <div class="collage">
@@ -293,6 +293,43 @@
     </div>
   </footer>
 
-  <script src="js/main.js?v=7"></script>
+  <!-- Global Quote Modal -->
+  <div class="quote-modal-overlay" aria-hidden="true">
+    <div class="quote-modal" role="dialog" aria-modal="true" aria-labelledby="quote-modal-title">
+      <button class="quote-modal__close" aria-label="Close">×</button>
+      <div class="quote-modal__header">
+        <h2 id="quote-modal-title" class="quote-modal__title">Get your quote</h2>
+        <p class="quote-modal__subtitle">Share a few details about your move or logistics requirement and we will get back with a tailored proposal.</p>
+      </div>
+      <form class="quote-form" onsubmit="return false;">
+        <div class="form-row">
+          <input type="text" placeholder="Full Name">
+          <input type="email" placeholder="Email Address">
+        </div>
+        <div class="form-row">
+          <input type="tel" placeholder="Phone Number">
+          <select>
+            <option value="" disabled selected>Inquiry Type</option>
+            <option>Expat Relocation</option>
+            <option>Corporate Moving</option>
+            <option>Freight Forwarding</option>
+            <option>Customs Clearance</option>
+            <option>Partnership Inquiry</option>
+            <option>Careers</option>
+            <option>Other</option>
+          </select>
+        </div>
+        <textarea placeholder="Tell us about your requirements"></textarea>
+        <div class="quote-form__actions">
+          <button type="submit" class="btn btn--primary">Send Message</button>
+        </div>
+      </form>
+      <div class="quote-modal__logo">
+        <img src="assets/GMS-logo.svg" alt="GMS">
+      </div>
+    </div>
+  </div>
+
+  <script src="js/main.js?v=9"></script>
 </body>
 </html>

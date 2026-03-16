@@ -5,6 +5,8 @@ document.addEventListener('DOMContentLoaded', () => {
   initMobileMenu();
   initScrollReveal();
   initCounters();
+  initQuoteModal();
+  initContactCopy();
 });
 
 function initHeroCarousel() {
@@ -189,4 +191,76 @@ function animateCounter(el) {
   }
 
   requestAnimationFrame(update);
+}
+
+function initQuoteModal() {
+  const overlay = document.querySelector('.quote-modal-overlay');
+  const modal = document.querySelector('.quote-modal');
+  if (!overlay || !modal) return;
+
+  const triggers = document.querySelectorAll('[data-quote-trigger]');
+  const closeBtn = modal.querySelector('.quote-modal__close');
+
+  const open = (e) => {
+    if (e) e.preventDefault();
+    overlay.classList.add('is-open');
+    document.body.style.overflow = 'hidden';
+  };
+
+  const close = () => {
+    overlay.classList.remove('is-open');
+    document.body.style.overflow = '';
+  };
+
+  triggers.forEach(btn => {
+    btn.addEventListener('click', open);
+  });
+
+  overlay.addEventListener('click', (e) => {
+    if (e.target === overlay) close();
+  });
+
+  if (closeBtn) {
+    closeBtn.addEventListener('click', close);
+  }
+
+  document.addEventListener('keydown', (e) => {
+    if (e.key === 'Escape' && overlay.classList.contains('is-open')) {
+      close();
+    }
+  });
+}
+
+function initContactCopy() {
+  const items = document.querySelectorAll('.contact-highlight__item');
+  if (!items.length) return;
+
+  const baseLabel = 'Click to copy';
+
+  items.forEach((item) => {
+    const valueEl = item.querySelector('span');
+    if (!valueEl) return;
+    const text = valueEl.textContent.trim();
+    item.dataset.copyValue = text;
+    item.dataset.copyLabel = baseLabel;
+
+    const reset = () => {
+      item.dataset.copyLabel = baseLabel;
+      item.classList.remove('is-copied');
+    };
+
+    item.addEventListener('click', (e) => {
+      e.preventDefault();
+      const toCopy = item.dataset.copyValue;
+      if (navigator.clipboard && navigator.clipboard.writeText) {
+        navigator.clipboard.writeText(toCopy).then(() => {
+          item.dataset.copyLabel = 'Copied ✓';
+          item.classList.add('is-copied');
+          setTimeout(reset, 2000);
+        }).catch(reset);
+      } else {
+        reset();
+      }
+    });
+  });
 }
