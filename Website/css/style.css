@@ -3,8 +3,8 @@
    ======================================== */
 
 :root {
-  --blue-primary: #8B3040;
-  --blue-dark: #6A2030;
+  --blue-primary: #A4292B;
+  --blue-dark: #6E1C22;
   --navy: #1A2E4A;
   --navy-deep: #111D2E;
   --maroon-deep: #2A0F15;
@@ -639,7 +639,7 @@ p {
   font-weight: var(--fw-black);
   line-height: 0.9;
   letter-spacing: -0.04em;
-  -webkit-text-stroke: 1.5px rgba(139, 48, 64, 0.15);
+  -webkit-text-stroke: 1.5px rgba(164, 41, 43, 0.15);
   color: transparent;
   position: absolute;
   right: -2%;
@@ -712,25 +712,37 @@ p {
   left: 24px;
   background: var(--blue-primary);
   color: var(--white);
-  border-radius: var(--radius-md);
-  padding: 20px 24px;
+  width: 140px;
+  height: 140px;
+  border-radius: 50%;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
   text-align: center;
-  box-shadow: var(--shadow-lg);
+  box-shadow: 0 8px 32px rgba(0,0,0,0.25);
+  transform: rotate(-6deg);
+  border: 3px dashed rgba(255,255,255,0.4);
+  outline: 3px solid var(--blue-primary);
+  outline-offset: -6px;
 }
 
 .split__badge .number {
-  font-size: 2.25rem;
+  font-size: 2.2rem;
   font-weight: var(--fw-extrabold);
   line-height: 1.1;
   display: block;
 }
 
 .split__badge .text {
-  font-size: 0.78rem;
-  font-weight: var(--fw-medium);
-  opacity: 0.85;
+  font-size: 0.68rem;
+  font-weight: var(--fw-semi);
+  opacity: 0.9;
   text-transform: uppercase;
-  letter-spacing: 0.05em;
+  letter-spacing: 0.08em;
+  line-height: 1.3;
+  margin-top: 2px;
 }
 
 .split__content .label { margin-bottom: 12px; display: block; }
@@ -751,7 +763,7 @@ p {
   width: 44px;
   height: 44px;
   border-radius: var(--radius-sm);
-  background: rgba(139, 48, 64, 0.08);
+  background: rgba(164, 41, 43, 0.08);
   color: var(--blue-primary);
   display: flex;
   align-items: center;
@@ -860,7 +872,7 @@ p {
    CTA BANNER — Split with collage
    ================================== */
 .cta-banner {
-  background: var(--maroon-deep);
+  background: linear-gradient(135deg, #7A2225 0%, #2E1014 80%);
   padding: 80px 0;
   position: relative;
   overflow: hidden;
@@ -871,7 +883,7 @@ p {
   position: absolute;
   inset: 0;
   overflow: hidden;
-  background: radial-gradient(ellipse at -20% 50%, rgba(139, 48, 64, 0.25) 0%, transparent 60%);
+  background: radial-gradient(ellipse at -20% 50%, rgba(164, 41, 43, 0.32) 0%, transparent 60%);
   pointer-events: none;
 }
 
@@ -889,7 +901,7 @@ p {
 }
 
 .cta-banner h2 { color: var(--white); margin-bottom: 16px; }
-.cta-banner p { color: rgba(255,255,255,0.6); margin-bottom: 36px; font-size: 1.05rem; }
+.cta-banner p { color: rgba(255,255,255,0.85); margin-bottom: 36px; font-size: 1.05rem; }
 
 .cta-banner__collage {
   position: relative;
@@ -1158,7 +1170,7 @@ p {
 }
 
 .about-vm-strip__inner {
-  background: rgba(139, 48, 64, 0.07);
+  background: rgba(164, 41, 43, 0.07);
   border-radius: var(--radius-xl);
   padding: 56px var(--page-padding);
   display: grid;
@@ -1277,7 +1289,7 @@ p {
   width: 40px;
   height: 40px;
   border-radius: var(--radius-sm);
-  background: rgba(139, 48, 64, 0.08);
+  background: rgba(164, 41, 43, 0.08);
   color: var(--blue-primary);
   display: flex;
   align-items: center;
@@ -1472,7 +1484,7 @@ p {
   width: 42px;
   height: 42px;
   border-radius: 50%;
-  background: rgba(139, 48, 64, 0.12);
+  background: rgba(164, 41, 43, 0.12);
   color: var(--blue-primary);
   font-weight: var(--fw-bold);
   font-size: 0.85rem;
@@ -1508,7 +1520,7 @@ p {
   width: 48px;
   height: 48px;
   border-radius: var(--radius-sm);
-  background: rgba(139, 48, 64, 0.08);
+  background: rgba(164, 41, 43, 0.08);
   color: var(--blue-primary);
   display: flex;
   align-items: center;
@@ -1629,7 +1641,7 @@ p {
   gap: 10px;
   padding: 12px 20px;
   border-radius: var(--radius-md);
-  background: rgba(139, 48, 64, 0.06);
+  background: rgba(164, 41, 43, 0.06);
   color: var(--blue-primary);
   font-weight: var(--fw-semi);
   font-size: 0.95rem;
@@ -1637,7 +1649,7 @@ p {
 }
 
 .contact-highlight__item:hover {
-  background: rgba(139, 48, 64, 0.12);
+  background: rgba(164, 41, 43, 0.12);
 }
 
 .contact-highlight__item svg {
@@ -1677,7 +1689,7 @@ p {
   width: 40px;
   height: 40px;
   border-radius: var(--radius-sm);
-  background: rgba(139, 48, 64, 0.08);
+  background: rgba(164, 41, 43, 0.08);
   color: var(--blue-primary);
   display: flex;
   align-items: center;
@@ -1785,15 +1797,19 @@ p {
    ================================== */
 @media (max-width: 1024px) {
   .about-profile-top {
-    grid-template-columns: 1fr;
-    gap: 28px;
-  }
-  .about-profile-body {
-    grid-template-columns: 1fr;
     gap: 32px;
   }
+  .about-profile-body {
+    gap: 36px;
+  }
   .about-profile-images img:nth-child(3) {
-    min-height: 200px;
+    min-height: 240px;
+  }
+  .about-airplane {
+    width: 38%;
+    max-width: 520px;
+    left: 260px;
+    bottom: 5px;
   }
   .services-grid--four {
     grid-template-columns: repeat(2, 1fr);
@@ -1840,11 +1856,14 @@ p {
   :root { --hero-inset: 10px; }
 
   /* --- Navbar & Mobile Nav --- */
-  .navbar__links, .navbar__cta { display: none; }
+  .navbar__links { display: none; }
   .navbar__hamburger { display: flex; }
   .mobile-nav { display: flex; }
   .navbar { top: calc(var(--hero-inset) + 12px); padding: 10px 14px; }
   .navbar--scrolled { top: 8px; }
+  .navbar__cta { margin-left: auto; margin-right: 12px; }
+  .navbar__cta .btn { padding: 8px 20px; font-size: 0.82rem; min-width: 120px; }
+  .navbar__cta .btn:hover { padding-left: 14px; padding-right: 26px; }
 
   /* --- Homepage Hero --- */
   .hero { min-height: calc(100vh - 20px); }
@@ -1905,7 +1924,14 @@ p {
     min-height: 200px;
   }
   .about-profile-section { padding-bottom: 100px; }
-  .about-airplane { width: 70%; max-width: 400px; }
+  .about-airplane-wrap { padding: 0 var(--page-padding); }
+  .about-airplane {
+    width: 75%;
+    max-width: 340px;
+    left: 50%;
+    transform: translateX(-50%);
+    bottom: 0;
+  }
   .about-vm-strip__inner { grid-template-columns: 1fr; gap: 28px; }
   .services-grid--four { grid-template-columns: 1fr; gap: 48px; }
   .about-leaders-grid { grid-template-columns: 1fr 1fr; }
@@ -1934,6 +1960,9 @@ p {
   .split { grid-template-columns: 1fr; gap: 36px; }
   .split__image { order: -1; }
   .split__image img { min-height: 280px; }
+  .split__badge { width: 110px; height: 110px; bottom: 16px; left: 16px; }
+  .split__badge .number { font-size: 1.7rem; }
+  .split__badge .text { font-size: 0.6rem; }
 
   /* --- Stats strip --- */
   .stats-strip__inner { flex-wrap: wrap; }
@@ -1973,6 +2002,9 @@ p {
   /* --- Navbar --- */
   .navbar { padding: 8px 10px; }
   .navbar__logo img { height: 30px !important; }
+  .navbar__cta { margin-right: 10px; }
+  .navbar__cta .btn { padding: 7px 16px; font-size: 0.78rem; min-width: auto; }
+  .navbar__cta .btn:hover { padding-left: 12px; padding-right: 22px; }
 
   /* --- Homepage Hero --- */
   .hero { min-height: calc(100svh - 12px); }
@@ -2015,7 +2047,8 @@ p {
   .about-profile-stats { grid-template-columns: repeat(2, 1fr); gap: 12px; }
   .about-leaders-grid { grid-template-columns: 1fr; }
   .about-leader img { height: 240px; }
-  .about-profile-section { padding-bottom: 80px; }
+  .about-profile-section { padding-bottom: 70px; }
+  .about-airplane { width: 80%; max-width: 300px; }
 
   /* --- Contact page --- */
   .contact-intro-section { padding-top: 80px; }
