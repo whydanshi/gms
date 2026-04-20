@@ -3,6 +3,7 @@ document.addEventListener('DOMContentLoaded', () => {
   initHeroCarousel();
   initNavbar();
   initMobileMenu();
+  initMegaMenu();
   initScrollReveal();
   initCounters();
   initQuoteModal();
@@ -142,6 +143,60 @@ function initMobileMenu() {
       document.body.style.overflow = '';
     });
   });
+}
+
+function initMegaMenu() {
+  var dropdown = document.querySelector('.navbar__dropdown');
+  if (!dropdown) return;
+
+  var megaMenu = dropdown.querySelector('.navbar__mega-menu');
+  var groups = dropdown.querySelectorAll('.mega-menu__group');
+  var closeTimer = null;
+  var CLOSE_DELAY = 220;
+
+  function open() {
+    if (closeTimer) { clearTimeout(closeTimer); closeTimer = null; }
+    dropdown.classList.add('is-open');
+  }
+  function scheduleClose() {
+    if (closeTimer) clearTimeout(closeTimer);
+    closeTimer = setTimeout(function() {
+      dropdown.classList.remove('is-open');
+      groups.forEach(function(g) { g.classList.remove('is-expanded'); });
+    }, CLOSE_DELAY);
+  }
+
+  dropdown.addEventListener('mouseenter', open);
+  dropdown.addEventListener('mouseleave', scheduleClose);
+  if (megaMenu) {
+    megaMenu.addEventListener('mouseenter', open);
+    megaMenu.addEventListener('mouseleave', scheduleClose);
+  }
+
+  groups.forEach(function(group) {
+    group.addEventListener('mouseenter', function() {
+      groups.forEach(function(g) { g.classList.remove('is-expanded'); });
+      group.classList.add('is-expanded');
+    });
+  });
+
+  var trigger = document.querySelector('.mobile-nav__accordion-trigger');
+  var panel = document.querySelector('.mobile-nav__accordion-panel');
+  if (trigger && panel) {
+    trigger.addEventListener('click', function() {
+      trigger.classList.toggle('is-open');
+      panel.classList.toggle('is-open');
+    });
+    panel.querySelectorAll('a').forEach(function(link) {
+      link.addEventListener('click', function() {
+        var hamburger = document.querySelector('.navbar__hamburger');
+        var mobileNav = document.querySelector('.mobile-nav');
+        if (hamburger) hamburger.classList.remove('active');
+        if (mobileNav) mobileNav.classList.remove('open');
+        document.body.style.overflow = '';
+      });
+    });
+  }
 }
 
 function initScrollReveal() {

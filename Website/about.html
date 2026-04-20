@@ -4,11 +4,11 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>About GMS — Global Mobility Services</title>
-  <meta name="description" content="Learn about GMS Corporate Services — a globally aligned relocation and logistics solutions provider delivering excellence across borders.">
+  <meta name="description" content="Learn about GMS Corporate Services — a global relocation and logistics partner delivering excellence across the globe.">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;1,400;1,600&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="css/style.css?v=8">
+  <link rel="stylesheet" href="css/style.css?v=11">
 </head>
 <body>
 
@@ -20,7 +20,37 @@
       </a>
       <div class="navbar__links">
         <a href="about.html" class="active">About Us</a>
-        <a href="services.html">Services</a>
+        <div class="navbar__dropdown">
+          <a href="services.html" class="navbar__dropdown-trigger">Services</a>
+          <div class="navbar__mega-menu">
+            <div class="mega-menu__group">
+              <a href="services.html#mobility-relocation" class="mega-menu__category">Mobility &amp; Relocation Solutions</a>
+              <div class="mega-menu__services">
+                <a href="services.html#household-relocation">Household Relocation</a>
+                <a href="services.html#corporate-mobility">Corporate Mobility Solutions</a>
+                <a href="services.html#destination-services">Relocation &amp; Destination Services</a>
+                <a href="services.html#pet-relocation">Pet Relocation</a>
+              </div>
+            </div>
+            <div class="mega-menu__group">
+              <a href="services.html#business-infrastructure" class="mega-menu__category">Business &amp; Infrastructure Relocation</a>
+              <div class="mega-menu__services">
+                <a href="services.html#office-it">Office &amp; IT Relocation</a>
+                <a href="services.html#data-center">Data Center Migration</a>
+                <a href="services.html#warehousing">Warehousing Solutions</a>
+              </div>
+            </div>
+            <div class="mega-menu__group">
+              <a href="services.html#specialised-logistics" class="mega-menu__category">Specialised Logistics &amp; Assets Care</a>
+              <div class="mega-menu__services">
+                <a href="services.html#road-freight">Road Freight Solutions</a>
+                <a href="services.html#automobile">Automobile Transportation</a>
+                <a href="services.html#fine-art">Fine Art Logistics</a>
+                <a href="services.html#transit-protection">Transit Protection</a>
+              </div>
+            </div>
+          </div>
+        </div>
         <a href="global-network.html">Global Network</a>
         <a href="contact.html">Contact Us</a>
       </div>
@@ -35,7 +65,26 @@
 
   <div class="mobile-nav">
     <a href="about.html">About Us</a>
-    <a href="services.html">Services</a>
+    <div class="mobile-nav__accordion">
+      <button class="mobile-nav__accordion-trigger">Services <span class="chevron">&#9662;</span></button>
+      <div class="mobile-nav__accordion-panel">
+        <a href="services.html" class="mobile-nav__view-all">View All Services</a>
+        <span class="mobile-nav__group-label">Mobility &amp; Relocation</span>
+        <a href="services.html#household-relocation">Household Relocation</a>
+        <a href="services.html#corporate-mobility">Corporate Mobility Solutions</a>
+        <a href="services.html#destination-services">Relocation &amp; Destination Services</a>
+        <a href="services.html#pet-relocation">Pet Relocation</a>
+        <span class="mobile-nav__group-label">Business &amp; Infrastructure</span>
+        <a href="services.html#office-it">Office &amp; IT Relocation</a>
+        <a href="services.html#data-center">Data Center Migration</a>
+        <a href="services.html#warehousing">Warehousing Solutions</a>
+        <span class="mobile-nav__group-label">Specialised Logistics</span>
+        <a href="services.html#road-freight">Road Freight Solutions</a>
+        <a href="services.html#automobile">Automobile Transportation</a>
+        <a href="services.html#fine-art">Fine Art Logistics</a>
+        <a href="services.html#transit-protection">Transit Protection</a>
+      </div>
+    </div>
     <a href="global-network.html">Global Network</a>
     <a href="contact.html">Contact Us</a>
     <a href="get-a-quote.html" class="btn btn--primary" style="margin-top: 12px;" data-quote-trigger>Get a Quote</a>
@@ -45,7 +94,7 @@
   <div class="hero-wrapper">
     <section class="page-hero page-hero--short">
       <div class="page-hero__bg">
-        <img src="https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?auto=format&fit=crop&w=1800&q=80" alt="Corporate skyline">
+        <img src="assets/photos/page-01.jpg" alt="GMS corporate profile">
       </div>
     </section>
   </div>
@@ -66,8 +115,8 @@
             <span>Projects Delivered</span>
           </div>
           <div class="about-stat">
-            <strong data-count="130" data-suffix="+">0+</strong>
-            <span>Cities Covered</span>
+            <strong data-count="300" data-suffix="+">0+</strong>
+            <span>Locations Worldwide</span>
           </div>
           <div class="about-stat">
             <strong data-count="25" data-suffix="+">0+</strong>
@@ -84,14 +133,14 @@
       <div class="about-profile-body reveal">
         <div class="about-profile-text">
           <h4>Headquartered in Gurugram, India</h4>
-          <p>GMS Corporate Services Private Limited is a globally aligned relocation and logistics solutions provider delivering excellence across borders.</p>
-          <p>Built on a foundation of trust, precision, and innovation, GMS enables individuals, corporations, and institutions to move seamlessly across geographies.</p>
-          <p>With deep domain expertise in international mobility and logistics management, we orchestrate complex relocations with clarity and care. Every assignment is approached with a global mindset and executed with meticulous local expertise, ensuring consistency, compliance, and peace of mind — anywhere in the world.</p>
+          <p>GMS Corporate Services Private Limited is a global relocation and logistics partner delivering excellence across the globe.</p>
+          <p>With trust, precision, and innovation at its core, GMS delivers seamless global mobility for individuals, corporates, and institutions.</p>
+          <p>With deep domain expertise in global mobility and logistics, we orchestrate relocation projects with clarity and precision. Every assignment is approached with a global mindset and executed with meticulous local expertise — ensuring consistency, compliance, and assurance across international, domestic and local destinations.</p>
         </div>
         <div class="about-profile-images">
-          <img src="https://images.unsplash.com/photo-1497366216548-37526070297c?auto=format&fit=crop&w=600&q=80" alt="Modern corporate office">
-          <img src="https://images.unsplash.com/photo-1497215842964-222b430dc094?auto=format&fit=crop&w=600&q=80" alt="Office workspace">
-          <img src="https://images.unsplash.com/photo-1524758631624-e2822e304c36?auto=format&fit=crop&w=600&q=80" alt="Office interior">
+          <img src="assets/photos/household-relocation.jpg" alt="Household relocation in action">
+          <img src="assets/photos/automobile-transportation.jpg" alt="Automobile transportation">
+          <img src="assets/photos/fine-art-final.jpeg" alt="Fine art logistics in transit">
         </div>
       </div>
 
@@ -108,7 +157,7 @@
     <div class="about-vm-strip__inner reveal">
       <div>
         <h3>Vision</h3>
-        <p>To emerge as a globally respected relocation and logistics leader, redefining mobility experiences and setting new standards in operational excellence, innovation, and service reliability.</p>
+        <p>To emerge as a global relocation and logistics leader, redefining mobility experiences and setting new standards in operational excellence, innovation, and service reliability.</p>
       </div>
       <div>
         <h3>Mission</h3>
@@ -170,29 +219,29 @@
     <div class="container">
       <div class="about-center-header reveal">
         <h2>Our Leadership</h2>
-        <p>Meet the visionaries guiding GMS toward a sustainable and innovative future in global infrastructure.</p>
+        <p>Meet the visionaries guiding GMS toward a sustainable and innovative future in global movement.</p>
       </div>
       <div class="about-leaders-grid">
         <article class="about-leader reveal reveal-delay-1">
-          <img src="https://images.unsplash.com/photo-1560250097-0b935284e1ea?auto=format&fit=crop&w=420&q=80" alt="Marcus Thorne">
+          <img src="https://images.unsplash.com/photo-1556157382-97eda2d62296?auto=format&fit=crop&w=420&q=80" alt="Marcus Thorne">
           <h4>Marcus Thorne</h4>
           <span>Chief Executive Officer</span>
           <p class="about-leader__bio">With 20 years in relocation management, Marcus is a strategic guide and innovator in the industry globally.</p>
         </article>
         <article class="about-leader reveal reveal-delay-2">
-          <img src="https://images.unsplash.com/photo-1611432579699-484f7990b127?auto=format&fit=crop&w=420&q=80" alt="Sarah Chen">
+          <img src="https://images.unsplash.com/photo-1525134479668-1bee5c7c6845?auto=format&fit=crop&w=420&q=80" alt="Sarah Chen">
           <h4>Sarah Chen</h4>
           <span>Chief Operations Officer</span>
           <p class="about-leader__bio">Sarah ensures smooth operations across all divisions, managing global partnerships and logistics coordination.</p>
         </article>
         <article class="about-leader reveal reveal-delay-3">
-          <img src="https://images.unsplash.com/photo-1551836022-d5d88e9218df?auto=format&fit=crop&w=420&q=80" alt="David Otero">
+          <img src="https://images.unsplash.com/photo-1554774853-719586f82d77?auto=format&fit=crop&w=420&q=80" alt="David Otero">
           <h4>David Otero</h4>
           <span>Director of Sustainability</span>
           <p class="about-leader__bio">David leads our green operations initiatives, integrating eco-friendly practices into every GMS project.</p>
         </article>
         <article class="about-leader reveal">
-          <img src="https://images.unsplash.com/photo-1607746882042-944bdf15e42a?auto=format&fit=crop&w=420&q=80" alt="Elena Rodriguez">
+          <img src="https://images.unsplash.com/photo-1550525811-e5869dd03032?auto=format&fit=crop&w=420&q=80" alt="Elena Rodriguez">
           <h4>Elena Rodriguez</h4>
           <span>Head of Engineering</span>
           <p class="about-leader__bio">Recognized for deep engineering expertise, Elena leads system automation and tech platform delivery.</p>
@@ -207,7 +256,7 @@
       <div class="about-contact-split reveal">
         <div class="about-contact__info">
           <h2>Get in Touch</h2>
-          <p>Have a project in mind or want to learn more about our services? Our team of experts is ready to help you shape the future of infrastructure.</p>
+          <p>Have a project in mind or want to learn more about our services? Our team of experts is ready to help you shape the future of global movement.</p>
           <div class="about-contact__details">
             <div class="about-contact__detail">
               <div class="about-contact__detail-icon">
@@ -215,7 +264,7 @@
               </div>
               <div>
                 <strong>Our Office</strong>
-                <span>Suite 435-436 | Tower-B | Spazedge, Sohna Road, Sector- 47 , Gurugram (Haryana) - 122018</span>
+                <span>Suite 435-436, Tower-B, Spazedge<br>Sohna Road, Sector- 47, Gurugram (Haryana) - 122018</span>
               </div>
             </div>
             <div class="about-contact__detail">
@@ -240,17 +289,24 @@
         </div>
         <form class="about-contact__form" onsubmit="return false;">
           <div class="form-row">
-            <input type="text" placeholder="Full Name">
+            <input type="text" placeholder="Name">
             <input type="email" placeholder="Email Address">
           </div>
           <div class="form-row">
             <input type="tel" placeholder="Phone Number">
             <select>
               <option value="" disabled selected>How can we help?</option>
-              <option>Expat Relocation</option>
-              <option>Corporate Moving</option>
-              <option>Freight Forwarding</option>
-              <option>Customs Clearance</option>
+              <option>Household Relocation</option>
+              <option>Corporate Mobility</option>
+              <option>Relocation &amp; Destination Services</option>
+              <option>Pet Relocation</option>
+              <option>Office &amp; IT Relocation</option>
+              <option>Data Center Migration</option>
+              <option>Warehousing</option>
+              <option>Road Freight</option>
+              <option>Automobile Transportation</option>
+              <option>Fine Art Logistics</option>
+              <option>Transit Protection</option>
               <option>Other</option>
             </select>
           </div>
@@ -274,10 +330,9 @@
         <div>
           <h4>Services</h4>
           <ul>
-            <li><a href="services.html">Expat Relocation</a></li>
-            <li><a href="services.html">Corporate Moving</a></li>
-            <li><a href="services.html">Freight Forwarding</a></li>
-            <li><a href="services.html">Customs Clearance</a></li>
+            <li><a href="services.html#mobility-relocation">Mobility &amp; Relocation</a></li>
+            <li><a href="services.html#business-infrastructure">Business &amp; Infrastructure</a></li>
+            <li><a href="services.html#specialised-logistics">Specialised Logistics</a></li>
           </ul>
         </div>
         <div>
@@ -293,7 +348,7 @@
           <h4>Contact</h4>
           <div class="footer__contact-item">
             <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z"/><circle cx="12" cy="10" r="3"/></svg>
-            <span>Suite 435-436 | Tower-B | Spazedge<br>Sohna Road, Sector- 47 , Gurugram (Haryana) - 122018</span>
+            <span>Suite 435-436, Tower-B, Spazedge<br>Sohna Road, Sector- 47, Gurugram (Haryana) - 122018</span>
           </div>
           <div class="footer__contact-item">
             <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07 19.5 19.5 0 01-6-6 19.79 19.79 0 01-3.07-8.67A2 2 0 014.11 2h3a2 2 0 012 1.72c.127.96.361 1.903.7 2.81a2 2 0 01-.45 2.11L8.09 9.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0122 16.92z"/></svg>
@@ -332,19 +387,25 @@
       </div>
       <form class="quote-form" onsubmit="return false;">
         <div class="form-row">
-          <input type="text" placeholder="Full Name">
+          <input type="text" placeholder="Name">
           <input type="email" placeholder="Email Address">
         </div>
         <div class="form-row">
           <input type="tel" placeholder="Phone Number">
           <select>
             <option value="" disabled selected>Inquiry Type</option>
-            <option>Expat Relocation</option>
-            <option>Corporate Moving</option>
-            <option>Freight Forwarding</option>
-            <option>Customs Clearance</option>
+            <option>Household Relocation</option>
+            <option>Corporate Mobility</option>
+            <option>Relocation &amp; Destination Services</option>
+            <option>Pet Relocation</option>
+            <option>Office &amp; IT Relocation</option>
+            <option>Data Center Migration</option>
+            <option>Warehousing</option>
+            <option>Road Freight</option>
+            <option>Automobile Transportation</option>
+            <option>Fine Art Logistics</option>
+            <option>Transit Protection</option>
             <option>Partnership Inquiry</option>
-            <option>Careers</option>
             <option>Other</option>
           </select>
         </div>
@@ -359,6 +420,6 @@
     </div>
   </div>
 
-  <script src="js/main.js?v=9"></script>
+  <script src="js/main.js?v=10"></script>
 </body>
 </html>

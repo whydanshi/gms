@@ -4,11 +4,11 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Global Network — GMS Corporate Services</title>
-  <meta name="description" content="GMS operates across 130+ cities in India with a trusted global partner ecosystem for cross-border relocation and freight logistics.">
+  <meta name="description" content="GMS operates across 300+ locations worldwide with a trusted global partner ecosystem for cross-border relocation and freight logistics.">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;1,400;1,600&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="css/style.css?v=8">
+  <link rel="stylesheet" href="css/style.css?v=11">
 </head>
 <body>
 
@@ -20,7 +20,37 @@
       </a>
       <div class="navbar__links">
         <a href="about.html">About Us</a>
-        <a href="services.html">Services</a>
+        <div class="navbar__dropdown">
+          <a href="services.html" class="navbar__dropdown-trigger">Services</a>
+          <div class="navbar__mega-menu">
+            <div class="mega-menu__group">
+              <a href="services.html#mobility-relocation" class="mega-menu__category">Mobility &amp; Relocation Solutions</a>
+              <div class="mega-menu__services">
+                <a href="services.html#household-relocation">Household Relocation</a>
+                <a href="services.html#corporate-mobility">Corporate Mobility Solutions</a>
+                <a href="services.html#destination-services">Relocation &amp; Destination Services</a>
+                <a href="services.html#pet-relocation">Pet Relocation</a>
+              </div>
+            </div>
+            <div class="mega-menu__group">
+              <a href="services.html#business-infrastructure" class="mega-menu__category">Business &amp; Infrastructure Relocation</a>
+              <div class="mega-menu__services">
+                <a href="services.html#office-it">Office &amp; IT Relocation</a>
+                <a href="services.html#data-center">Data Center Migration</a>
+                <a href="services.html#warehousing">Warehousing Solutions</a>
+              </div>
+            </div>
+            <div class="mega-menu__group">
+              <a href="services.html#specialised-logistics" class="mega-menu__category">Specialised Logistics &amp; Assets Care</a>
+              <div class="mega-menu__services">
+                <a href="services.html#road-freight">Road Freight Solutions</a>
+                <a href="services.html#automobile">Automobile Transportation</a>
+                <a href="services.html#fine-art">Fine Art Logistics</a>
+                <a href="services.html#transit-protection">Transit Protection</a>
+              </div>
+            </div>
+          </div>
+        </div>
         <a href="global-network.html" class="active">Global Network</a>
         <a href="contact.html">Contact Us</a>
       </div>
@@ -35,7 +65,26 @@
 
   <div class="mobile-nav">
     <a href="about.html">About Us</a>
-    <a href="services.html">Services</a>
+    <div class="mobile-nav__accordion">
+      <button class="mobile-nav__accordion-trigger">Services <span class="chevron">&#9662;</span></button>
+      <div class="mobile-nav__accordion-panel">
+        <a href="services.html" class="mobile-nav__view-all">View All Services</a>
+        <span class="mobile-nav__group-label">Mobility &amp; Relocation</span>
+        <a href="services.html#household-relocation">Household Relocation</a>
+        <a href="services.html#corporate-mobility">Corporate Mobility Solutions</a>
+        <a href="services.html#destination-services">Relocation &amp; Destination Services</a>
+        <a href="services.html#pet-relocation">Pet Relocation</a>
+        <span class="mobile-nav__group-label">Business &amp; Infrastructure</span>
+        <a href="services.html#office-it">Office &amp; IT Relocation</a>
+        <a href="services.html#data-center">Data Center Migration</a>
+        <a href="services.html#warehousing">Warehousing Solutions</a>
+        <span class="mobile-nav__group-label">Specialised Logistics</span>
+        <a href="services.html#road-freight">Road Freight Solutions</a>
+        <a href="services.html#automobile">Automobile Transportation</a>
+        <a href="services.html#fine-art">Fine Art Logistics</a>
+        <a href="services.html#transit-protection">Transit Protection</a>
+      </div>
+    </div>
     <a href="global-network.html">Global Network</a>
     <a href="contact.html">Contact Us</a>
     <a href="get-a-quote.html" class="btn btn--primary" style="margin-top: 12px;" data-quote-trigger>Get a Quote</a>
@@ -45,7 +94,7 @@
   <div class="hero-wrapper">
     <section class="page-hero page-hero--short page-hero--image-only">
       <div class="page-hero__bg">
-        <img src="https://images.unsplash.com/photo-1451187580459-43490279c0fa?auto=format&fit=crop&w=1800&q=80" alt="Global connectivity network">
+        <img src="assets/photos/operations-overview.png" alt="Global logistics network">
       </div>
     </section>
   </div>
@@ -70,8 +119,8 @@
     <div class="container">
       <div class="stats-strip__inner">
         <div class="stats-strip__item reveal">
-          <div class="stats-strip__number" data-count="130">0</div>
-          <span class="stats-strip__label">Cities Covered</span>
+          <div class="stats-strip__number" data-count="300">0</div>
+          <span class="stats-strip__label">Locations Worldwide</span>
         </div>
         <div class="stats-strip__item reveal">
           <div class="stats-strip__number" data-count="1200">0</div>
@@ -151,7 +200,7 @@
       <div class="network-partners-grid">
         <article class="network-partner reveal reveal-delay-1">
           <div class="network-partner__image">
-            <img src="https://images.unsplash.com/photo-1578575437130-527eed3abbec?auto=format&fit=crop&w=600&q=80" alt="Cargo vessel at sea">
+            <img src="assets/photos/fine-art-final.jpeg" alt="Specialist handling at scale">
           </div>
           <div class="network-partner__body">
             <h3>Ocean Freight Network</h3>
@@ -160,7 +209,7 @@
         </article>
         <article class="network-partner reveal reveal-delay-2">
           <div class="network-partner__image">
-            <img src="https://images.unsplash.com/photo-1436491865332-7a61a109db05?auto=format&fit=crop&w=600&q=80" alt="Cargo aircraft loading">
+            <img src="assets/photos/automobile-transportation-reworked.png" alt="Automobile transportation">
           </div>
           <div class="network-partner__body">
             <h3>Air Freight Alliances</h3>
@@ -169,7 +218,7 @@
         </article>
         <article class="network-partner reveal reveal-delay-3">
           <div class="network-partner__image">
-            <img src="https://images.unsplash.com/photo-1600880292203-757bb62b4baf?auto=format&fit=crop&w=600&q=80" alt="Relocation planning meeting">
+            <img src="assets/photos/household-relocation.jpg" alt="Relocation planning and execution">
           </div>
           <div class="network-partner__body">
             <h3>Relocation Partners</h3>
@@ -197,7 +246,7 @@
           </ul>
         </div>
         <div class="network-capabilities__image">
-          <img src="https://images.unsplash.com/photo-1586528116311-ad8dd3c8310d?auto=format&fit=crop&w=800&q=80" alt="Logistics operations control">
+          <img src="assets/photos/bike-lashing.jpg" alt="Logistics operations">
         </div>
       </div>
     </div>
@@ -216,14 +265,14 @@
         <div class="cta-banner__collage">
           <div class="collage">
             <div class="collage__tall">
-              <img src="https://images.unsplash.com/photo-1586528116311-ad8dd3c8310d?auto=format&fit=crop&w=600&q=80" alt="Shipping containers stacked at port">
+              <img src="assets/photos/household-relocation-photo.png" alt="Household relocation in action">
             </div>
             <div class="collage__stack">
               <div class="collage__img">
-                <img src="https://images.unsplash.com/photo-1578575437130-527eed3abbec?auto=format&fit=crop&w=400&q=80" alt="Cargo ship at sea">
+                <img src="assets/photos/pet-relocation-reworked.png" alt="Pet relocation services">
               </div>
               <div class="collage__img">
-                <img src="https://images.unsplash.com/photo-1553413077-190dd305871c?auto=format&fit=crop&w=400&q=80" alt="Warehouse logistics">
+                <img src="assets/photos/fine-art-classical.png" alt="Fine art logistics">
               </div>
             </div>
           </div>
@@ -245,10 +294,9 @@
         <div>
           <h4>Services</h4>
           <ul>
-            <li><a href="services.html">Expat Relocation</a></li>
-            <li><a href="services.html">Corporate Moving</a></li>
-            <li><a href="services.html">Freight Forwarding</a></li>
-            <li><a href="services.html">Customs Clearance</a></li>
+            <li><a href="services.html#mobility-relocation">Mobility &amp; Relocation</a></li>
+            <li><a href="services.html#business-infrastructure">Business &amp; Infrastructure</a></li>
+            <li><a href="services.html#specialised-logistics">Specialised Logistics</a></li>
           </ul>
         </div>
         <div>
@@ -264,7 +312,7 @@
           <h4>Contact</h4>
           <div class="footer__contact-item">
             <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z"/><circle cx="12" cy="10" r="3"/></svg>
-            <span>Suite 435-436 | Tower-B | Spazedge<br>Sohna Road, Sector- 47 , Gurugram (Haryana) - 122018</span>
+            <span>Suite 435-436, Tower-B, Spazedge<br>Sohna Road, Sector- 47, Gurugram (Haryana) - 122018</span>
           </div>
           <div class="footer__contact-item">
             <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07 19.5 19.5 0 01-6-6 19.79 19.79 0 01-3.07-8.67A2 2 0 014.11 2h3a2 2 0 012 1.72c.127.96.361 1.903.7 2.81a2 2 0 01-.45 2.11L8.09 9.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0122 16.92z"/></svg>
@@ -293,6 +341,6 @@
     </div>
   </footer>
 
-  <script src="js/main.js?v=9"></script>
+  <script src="js/main.js?v=10"></script>
 </body>
 </html>

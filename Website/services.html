@@ -4,11 +4,11 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>GMS Services — Relocation and Logistics Solutions</title>
-  <meta name="description" content="Explore GMS services including expat relocation, corporate moving, freight forwarding, and customs support tailored for global mobility in India.">
+  <meta name="description" content="Explore GMS services across mobility and relocation, business infrastructure, and specialised logistics — tailored for global mobility in India.">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;1,400;1,600&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="css/style.css?v=8">
+  <link rel="stylesheet" href="css/style.css?v=11">
 </head>
 <body>
 
@@ -20,7 +20,37 @@
       </a>
       <div class="navbar__links">
         <a href="about.html">About Us</a>
-        <a href="services.html" class="active">Services</a>
+        <div class="navbar__dropdown">
+          <a href="services.html" class="navbar__dropdown-trigger active">Services</a>
+          <div class="navbar__mega-menu">
+            <div class="mega-menu__group">
+              <a href="services.html#mobility-relocation" class="mega-menu__category">Mobility &amp; Relocation Solutions</a>
+              <div class="mega-menu__services">
+                <a href="services.html#household-relocation">Household Relocation</a>
+                <a href="services.html#corporate-mobility">Corporate Mobility Solutions</a>
+                <a href="services.html#destination-services">Relocation &amp; Destination Services</a>
+                <a href="services.html#pet-relocation">Pet Relocation</a>
+              </div>
+            </div>
+            <div class="mega-menu__group">
+              <a href="services.html#business-infrastructure" class="mega-menu__category">Business &amp; Infrastructure Relocation</a>
+              <div class="mega-menu__services">
+                <a href="services.html#office-it">Office &amp; IT Relocation</a>
+                <a href="services.html#data-center">Data Center Migration</a>
+                <a href="services.html#warehousing">Warehousing Solutions</a>
+              </div>
+            </div>
+            <div class="mega-menu__group">
+              <a href="services.html#specialised-logistics" class="mega-menu__category">Specialised Logistics &amp; Assets Care</a>
+              <div class="mega-menu__services">
+                <a href="services.html#road-freight">Road Freight Solutions</a>
+                <a href="services.html#automobile">Automobile Transportation</a>
+                <a href="services.html#fine-art">Fine Art Logistics</a>
+                <a href="services.html#transit-protection">Transit Protection</a>
+              </div>
+            </div>
+          </div>
+        </div>
         <a href="global-network.html">Global Network</a>
         <a href="contact.html">Contact Us</a>
       </div>
@@ -35,7 +65,26 @@
 
   <div class="mobile-nav">
     <a href="about.html">About Us</a>
-    <a href="services.html">Services</a>
+    <div class="mobile-nav__accordion">
+      <button class="mobile-nav__accordion-trigger">Services <span class="chevron">&#9662;</span></button>
+      <div class="mobile-nav__accordion-panel">
+        <a href="services.html" class="mobile-nav__view-all">View All Services</a>
+        <span class="mobile-nav__group-label">Mobility &amp; Relocation</span>
+        <a href="services.html#household-relocation">Household Relocation</a>
+        <a href="services.html#corporate-mobility">Corporate Mobility Solutions</a>
+        <a href="services.html#destination-services">Relocation &amp; Destination Services</a>
+        <a href="services.html#pet-relocation">Pet Relocation</a>
+        <span class="mobile-nav__group-label">Business &amp; Infrastructure</span>
+        <a href="services.html#office-it">Office &amp; IT Relocation</a>
+        <a href="services.html#data-center">Data Center Migration</a>
+        <a href="services.html#warehousing">Warehousing Solutions</a>
+        <span class="mobile-nav__group-label">Specialised Logistics</span>
+        <a href="services.html#road-freight">Road Freight Solutions</a>
+        <a href="services.html#automobile">Automobile Transportation</a>
+        <a href="services.html#fine-art">Fine Art Logistics</a>
+        <a href="services.html#transit-protection">Transit Protection</a>
+      </div>
+    </div>
     <a href="global-network.html">Global Network</a>
     <a href="contact.html">Contact Us</a>
     <a href="get-a-quote.html" class="btn btn--primary" style="margin-top: 12px;" data-quote-trigger>Get a Quote</a>
@@ -45,7 +94,7 @@
   <div class="hero-wrapper">
     <section class="page-hero page-hero--short page-hero--image-only">
       <div class="page-hero__bg">
-        <img src="https://images.unsplash.com/photo-1494412685616-a5d310fbb07d?auto=format&fit=crop&w=1800&q=80" alt="Global logistics operations">
+        <img src="assets/photos/operations-overview.png" alt="Global logistics operations">
       </div>
     </section>
   </div>
@@ -55,10 +104,10 @@
     <div class="container">
       <div class="section-header-split reveal">
         <div>
-          <h2>Comprehensive<br>Mobility &amp; Logistics<br>Solutions</h2>
+          <h2>Solutions Built for<br>Every Move Type</h2>
         </div>
         <div>
-          <p>From employee relocation to multimodal freight movement, GMS delivers end-to-end services with disciplined planning and local execution strength.</p>
+          <p>We offer international, domestic and local relocation and logistics solutions designed for efficient execution, responsible handling, and lower-impact operations.</p>
           <a href="get-a-quote.html" class="btn btn--primary" data-quote-trigger>Get a Quote</a>
         </div>
       </div>
@@ -71,109 +120,289 @@
       <div class="section-header-split reveal">
         <div>
           <span class="label">Service Portfolio</span>
-          <h2>Solutions built for every move type</h2>
+          <h2>Three pillars of relocation and logistics excellence</h2>
         </div>
         <div>
-          <p>Our service portfolio supports both people mobility and freight operations with one accountable partner across the entire workflow.</p>
+          <p>Our service portfolio supports people mobility, business infrastructure, and specialised logistics with one accountable partner across the entire workflow.</p>
         </div>
       </div>
       <div class="services-grid">
         <div class="service-card reveal reveal-delay-1">
           <div class="service-card__image">
-            <img src="https://images.unsplash.com/photo-1573497019940-1c28c88b4f3e?auto=format&fit=crop&w=400&q=80" alt="Expat relocation support">
+            <img src="assets/photos/household-relocation.jpg" alt="Mobility and relocation">
           </div>
           <div class="service-card__body">
-            <h3>Expat Relocation</h3>
-            <p>Home search, settlement, orientation, and continuous support for professionals and their families.</p>
+            <h3>Mobility &amp; Relocation Solutions</h3>
+            <p>Household, corporate, and destination relocation support for individuals, families, and organisations — from planning through settlement.</p>
+            <a href="#mobility-relocation" class="service-card__link">Explore <span class="arrow">&rarr;</span></a>
           </div>
         </div>
         <div class="service-card reveal reveal-delay-2">
           <div class="service-card__image">
-            <img src="https://images.unsplash.com/photo-1586528116311-ad8dd3c8310d?auto=format&fit=crop&w=400&q=80" alt="Corporate moving warehouse">
+            <img src="assets/photos/household-relocation-alt.jpg" alt="Business and infrastructure relocation">
           </div>
           <div class="service-card__body">
-            <h3>Corporate Moving</h3>
-            <p>Planned office relocations and infrastructure moves with downtime control and asset safety.</p>
+            <h3>Business &amp; Infrastructure Relocation</h3>
+            <p>Office, IT, data center, and warehousing relocation solutions designed to minimise disruption and protect critical assets.</p>
+            <a href="#business-infrastructure" class="service-card__link">Explore <span class="arrow">&rarr;</span></a>
           </div>
         </div>
         <div class="service-card reveal reveal-delay-3">
           <div class="service-card__image">
-            <img src="https://images.unsplash.com/photo-1494412574643-ff11b0a5eb19?auto=format&fit=crop&w=400&q=80" alt="Freight forwarding operations">
+            <img src="assets/photos/transit-protection.jpg" alt="Specialised logistics">
           </div>
           <div class="service-card__body">
-            <h3>Freight Forwarding</h3>
-            <p>Integrated sea, air, and road solutions with strong partner networks and real-time coordination.</p>
+            <h3>Specialised Logistics &amp; Assets Care</h3>
+            <p>Road freight, automobile, fine art logistics, and transit protection — specialist handling for high-value and time-sensitive cargo.</p>
+            <a href="#specialised-logistics" class="service-card__link">Explore <span class="arrow">&rarr;</span></a>
           </div>
         </div>
       </div>
     </div>
   </section>
 
-  <!-- Detailed Service Sections -->
-  <section class="section">
+  <!-- GROUP 1: Mobility & Relocation Solutions -->
+  <section class="section" id="mobility-relocation">
     <div class="container">
+      <div class="section-header-split reveal">
+        <div>
+          <span class="label">Mobility &amp; Relocation Solutions</span>
+          <h2>People-first relocation across borders and cities</h2>
+        </div>
+        <div>
+          <p>End-to-end mobility support for individuals, employees, and their families — across international, domestic, and intracity destinations.</p>
+        </div>
+      </div>
       <div class="services-detail-list">
 
-        <article class="services-detail reveal">
+        <article class="services-detail reveal" id="household-relocation">
           <div class="services-detail__image">
-            <img src="https://images.unsplash.com/photo-1600880292203-757bb62b4baf?auto=format&fit=crop&w=900&q=80" alt="Relocation consultation with client">
+            <img src="assets/photos/household-relocation.jpg" alt="Household relocation">
           </div>
           <div class="services-detail__content">
             <span class="label">01</span>
-            <h3>Expat Relocation Management</h3>
-            <p>Personalized relocation journeys for assignees and families, covering pre-arrival planning through post-settlement support.</p>
+            <h3>Household Relocation</h3>
+            <p>Reliable household relocation solutions delivered through efficient planning, careful handling, and lower-waste move execution.</p>
             <ul class="services-checklist">
-              <li>Home search and lease support</li>
-              <li>Schooling and orientation assistance</li>
-              <li>Dedicated move coordinator</li>
+              <li>International Household Relocation</li>
+              <li>Domestic Household Relocation</li>
+              <li>Intracity Household Relocation</li>
             </ul>
           </div>
         </article>
 
-        <article class="services-detail services-detail--reverse reveal">
+        <article class="services-detail services-detail--reverse reveal" id="corporate-mobility">
           <div class="services-detail__image">
-            <img src="https://images.unsplash.com/photo-1497366216548-37526070297c?auto=format&fit=crop&w=900&q=80" alt="Modern corporate office">
+            <img src="assets/photos/household-relocation-alt.jpg" alt="Corporate mobility solutions">
           </div>
           <div class="services-detail__content">
             <span class="label">02</span>
-            <h3>Corporate and Office Moves</h3>
-            <p>Business-first relocation programs for office spaces, departments, and critical infrastructure with staged execution.</p>
+            <h3>Corporate Mobility Solutions</h3>
+            <p>Program-led mobility support for organisations managing employee movement across international, domestic and intracity locations.</p>
             <ul class="services-checklist">
-              <li>Move sequencing and floor planning</li>
-              <li>Packing, transport, and setup support</li>
-              <li>Downtime minimization controls</li>
+              <li>Policy Advisory</li>
+              <li>Expense Management</li>
+              <li>Program Administration</li>
+              <li>Compliance and Immigration Coordination</li>
+              <li>Reporting and Vendor Coordination</li>
             </ul>
           </div>
         </article>
 
-        <article class="services-detail reveal">
+        <article class="services-detail reveal" id="destination-services">
           <div class="services-detail__image">
-            <img src="https://images.unsplash.com/photo-1578575437130-527eed3abbec?auto=format&fit=crop&w=900&q=80" alt="Cargo vessel at sea">
+            <img src="assets/photos/page-01.jpg" alt="Destination services">
           </div>
           <div class="services-detail__content">
             <span class="label">03</span>
-            <h3>Freight Forwarding &amp; Transport</h3>
-            <p>Reliable freight movement across ports, airports, and inland routes supported by trusted carriers and process visibility.</p>
+            <h3>Relocation &amp; Destination Services</h3>
+            <p>Planned mobility support for employees and their families designed to streamline transitions, and improve relocation efficiency.</p>
             <ul class="services-checklist">
-              <li>Air, sea, and road multimodal options</li>
-              <li>Carrier coordination and scheduling</li>
-              <li>Shipment visibility and milestone tracking</li>
+              <li>International/Domestic Transfer Planning</li>
+              <li>City Orientation</li>
+              <li>Home/School Search Assistance</li>
+              <li>Temporary Accommodation Support</li>
+              <li>Lease and Tenancy Support</li>
+              <li>Destination Settling-in Assistance</li>
+              <li>Family Support Services</li>
+              <li>Long &amp; Short Term Car Leasing Support</li>
             </ul>
           </div>
         </article>
 
-        <article class="services-detail services-detail--reverse reveal">
+        <article class="services-detail services-detail--reverse reveal" id="pet-relocation">
           <div class="services-detail__image">
-            <img src="https://images.unsplash.com/photo-1450101499163-c8848c66ca85?auto=format&fit=crop&w=900&q=80" alt="Compliance and documentation">
+            <img src="assets/photos/pet-relocation.jpg" alt="Pet relocation">
           </div>
           <div class="services-detail__content">
             <span class="label">04</span>
-            <h3>Customs &amp; Ancillary Support</h3>
-            <p>Documentation, compliance, and last-mile assistance designed to remove friction from complex cross-border operations.</p>
+            <h3>Pet Relocation</h3>
+            <p>Safe and well-coordinated domestic and international pet relocation services tailored to travel requirements.</p>
             <ul class="services-checklist">
-              <li>Documentation and customs guidance</li>
-              <li>Port and terminal coordination</li>
-              <li>Value-added support services</li>
+              <li>International Pet Relocation</li>
+              <li>Domestic Pet Relocation</li>
+              <li>Door-to-Door Move Planning</li>
+              <li>Travel Documentation Support</li>
+            </ul>
+          </div>
+        </article>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- GROUP 2: Business & Infrastructure Relocation -->
+  <section class="section section--grey" id="business-infrastructure">
+    <div class="container">
+      <div class="section-header-split reveal">
+        <div>
+          <span class="label">Business &amp; Infrastructure Relocation</span>
+          <h2>Minimise disruption, protect critical assets</h2>
+        </div>
+        <div>
+          <p>Planned relocation solutions for offices, data centers, and warehousing operations — executed with precision and continuity.</p>
+        </div>
+      </div>
+      <div class="services-detail-list">
+
+        <article class="services-detail reveal" id="office-it">
+          <div class="services-detail__image">
+            <img src="assets/photos/household-relocation-reworked.png" alt="Office and IT relocation">
+          </div>
+          <div class="services-detail__content">
+            <span class="label">05</span>
+            <h3>Office &amp; IT Relocation</h3>
+            <p>Planned office and IT relocation solutions designed to protect critical assets, and improve movement efficiency.</p>
+            <ul class="services-checklist">
+              <li>End-to-End Office Relocation Planning</li>
+              <li>Internal Office Moves</li>
+              <li>Furniture &amp; Equipment Movement</li>
+              <li>Bare Shell Office Setup Coordination</li>
+              <li>IT Equipment Relocation</li>
+              <li>Reinstallation Coordination</li>
+            </ul>
+          </div>
+        </article>
+
+        <article class="services-detail services-detail--reverse reveal" id="data-center">
+          <div class="services-detail__image">
+            <img src="assets/photos/automobile-transportation-reworked.png" alt="Data center migration">
+          </div>
+          <div class="services-detail__content">
+            <span class="label">06</span>
+            <h3>Data Center Migration Projects</h3>
+            <p>Structured migration support focused on continuity, precise handling, and efficient infrastructure transition.</p>
+            <ul class="services-checklist">
+              <li>Data Center Migration Planning</li>
+              <li>Rack &amp; Server Relocation</li>
+              <li>Critical Equipment Handling</li>
+              <li>Plant and Projects Relocation Support</li>
+            </ul>
+          </div>
+        </article>
+
+        <article class="services-detail reveal" id="warehousing">
+          <div class="services-detail__image">
+            <img src="assets/photos/transit-protection-alt.png" alt="Warehousing solutions">
+          </div>
+          <div class="services-detail__content">
+            <span class="label">07</span>
+            <h3>Warehousing Solutions</h3>
+            <p>Warehousing solutions designed for efficient storage, controlled handling, and streamlined dispatch across business and logistics operations.</p>
+            <ul class="services-checklist">
+              <li>Long &amp; Short Term Warehousing</li>
+              <li>Inventory Management</li>
+              <li>Household Goods Storage</li>
+              <li>Business Assets Storage</li>
+              <li>Fine Art Storage</li>
+              <li>Automobile Storage</li>
+            </ul>
+          </div>
+        </article>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- GROUP 3: Specialised Logistics & Assets Care -->
+  <section class="section" id="specialised-logistics">
+    <div class="container">
+      <div class="section-header-split reveal">
+        <div>
+          <span class="label">Specialised Logistics &amp; Assets Care</span>
+          <h2>Expert handling for high-value and time-sensitive cargo</h2>
+        </div>
+        <div>
+          <p>Specialist logistics services covering road freight, automobile transport, fine art, and transit protection across India and internationally.</p>
+        </div>
+      </div>
+      <div class="services-detail-list">
+
+        <article class="services-detail reveal" id="road-freight">
+          <div class="services-detail__image">
+            <img src="assets/photos/road-freight.jpg" alt="Road freight solutions">
+          </div>
+          <div class="services-detail__content">
+            <span class="label">08</span>
+            <h3>Road Freight Solutions</h3>
+            <p>Vehicle-based transport solutions offering full truckload and part truckload movement for reliable, efficient, and time-bound freight execution.</p>
+            <ul class="services-checklist">
+              <li>Point-to-Point Transport</li>
+              <li>Full Truckload / Part Truckload Movement</li>
+              <li>Intracity &amp; Intercity Transport</li>
+              <li>First &amp; Last Mile Delivery</li>
+            </ul>
+          </div>
+        </article>
+
+        <article class="services-detail services-detail--reverse reveal" id="automobile">
+          <div class="services-detail__image">
+            <img src="assets/photos/automobile-transportation.jpg" alt="Automobile transportation">
+          </div>
+          <div class="services-detail__content">
+            <span class="label">09</span>
+            <h3>Automobile Transportation</h3>
+            <p>International and domestic automobile transportation solutions delivered through efficient routing, controlled handling, and dependable vehicle movement planning.</p>
+            <ul class="services-checklist">
+              <li>International Vehicle Shipping</li>
+              <li>Domestic Vehicle Transportation</li>
+              <li>Door-to-Door Vehicle Movement</li>
+              <li>Luxury Vehicle Handling</li>
+            </ul>
+          </div>
+        </article>
+
+        <article class="services-detail reveal" id="fine-art">
+          <div class="services-detail__image">
+            <img src="assets/photos/fine-art-final.jpeg" alt="Fine art logistics — packing and transit">
+          </div>
+          <div class="services-detail__content">
+            <span class="label">10</span>
+            <h3>Fine Art Logistics</h3>
+            <p>Specialist handling and transportation solutions for fine art, collectibles, and other high-value items.</p>
+            <ul class="services-checklist">
+              <li>Fine Art Packing and Moving</li>
+              <li>International, Domestic and Intracity Transport</li>
+              <li>Gallery &amp; Exhibition Logistics</li>
+              <li>Installation &amp; Deinstallation Coordination</li>
+            </ul>
+          </div>
+        </article>
+
+        <article class="services-detail services-detail--reverse reveal" id="transit-protection">
+          <div class="services-detail__image">
+            <img src="assets/photos/transit-protection.jpg" alt="Transit protection">
+          </div>
+          <div class="services-detail__content">
+            <span class="label">11</span>
+            <h3>Transit Protection</h3>
+            <p>Added shipment protection solutions designed to provide greater peace of mind during domestic and international transit.</p>
+            <ul class="services-checklist">
+              <li>Household Goods Transit Protection</li>
+              <li>Vehicle Transit Protection</li>
+              <li>Fine Art Transit Protection</li>
+              <li>Storage-Linked Protection Support</li>
+              <li>Door-to-Door Shipment Coverage Support</li>
             </ul>
           </div>
         </article>
@@ -227,14 +456,14 @@
         <div class="cta-banner__collage">
           <div class="collage">
             <div class="collage__tall">
-              <img src="https://images.unsplash.com/photo-1586528116311-ad8dd3c8310d?auto=format&fit=crop&w=600&q=80" alt="Shipping containers stacked at port">
+              <img src="assets/photos/automobile-transportation-reworked.png" alt="Automobile transportation in transit">
             </div>
             <div class="collage__stack">
               <div class="collage__img">
-                <img src="https://images.unsplash.com/photo-1578575437130-527eed3abbec?auto=format&fit=crop&w=400&q=80" alt="Cargo ship at sea">
+                <img src="assets/photos/pet-relocation-reworked.png" alt="Pet relocation services">
               </div>
               <div class="collage__img">
-                <img src="https://images.unsplash.com/photo-1553413077-190dd305871c?auto=format&fit=crop&w=400&q=80" alt="Warehouse logistics">
+                <img src="assets/photos/household-relocation-photo.png" alt="Household relocation">
               </div>
             </div>
           </div>
@@ -256,10 +485,9 @@
         <div>
           <h4>Services</h4>
           <ul>
-            <li><a href="services.html">Expat Relocation</a></li>
-            <li><a href="services.html">Corporate Moving</a></li>
-            <li><a href="services.html">Freight Forwarding</a></li>
-            <li><a href="services.html">Customs Clearance</a></li>
+            <li><a href="services.html#mobility-relocation">Mobility &amp; Relocation</a></li>
+            <li><a href="services.html#business-infrastructure">Business &amp; Infrastructure</a></li>
+            <li><a href="services.html#specialised-logistics">Specialised Logistics</a></li>
           </ul>
         </div>
         <div>
@@ -275,7 +503,7 @@
           <h4>Contact</h4>
           <div class="footer__contact-item">
             <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z"/><circle cx="12" cy="10" r="3"/></svg>
-            <span>Suite 435-436 | Tower-B | Spazedge<br>Sohna Road, Sector- 47 , Gurugram (Haryana) - 122018</span>
+            <span>Suite 435-436, Tower-B, Spazedge<br>Sohna Road, Sector- 47, Gurugram (Haryana) - 122018</span>
           </div>
           <div class="footer__contact-item">
             <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07 19.5 19.5 0 01-6-6 19.79 19.79 0 01-3.07-8.67A2 2 0 014.11 2h3a2 2 0 012 1.72c.127.96.361 1.903.7 2.81a2 2 0 01-.45 2.11L8.09 9.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0122 16.92z"/></svg>
@@ -314,19 +542,25 @@
       </div>
       <form class="quote-form" onsubmit="return false;">
         <div class="form-row">
-          <input type="text" placeholder="Full Name">
+          <input type="text" placeholder="Name">
           <input type="email" placeholder="Email Address">
         </div>
         <div class="form-row">
           <input type="tel" placeholder="Phone Number">
           <select>
             <option value="" disabled selected>Inquiry Type</option>
-            <option>Expat Relocation</option>
-            <option>Corporate Moving</option>
-            <option>Freight Forwarding</option>
-            <option>Customs Clearance</option>
+            <option>Household Relocation</option>
+            <option>Corporate Mobility</option>
+            <option>Relocation &amp; Destination Services</option>
+            <option>Pet Relocation</option>
+            <option>Office &amp; IT Relocation</option>
+            <option>Data Center Migration</option>
+            <option>Warehousing</option>
+            <option>Road Freight</option>
+            <option>Automobile Transportation</option>
+            <option>Fine Art Logistics</option>
+            <option>Transit Protection</option>
             <option>Partnership Inquiry</option>
-            <option>Careers</option>
             <option>Other</option>
           </select>
         </div>
@@ -341,6 +575,6 @@
     </div>
   </div>
 
-  <script src="js/main.js?v=9"></script>
+  <script src="js/main.js?v=10"></script>
 </body>
 </html>
