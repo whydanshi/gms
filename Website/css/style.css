@@ -839,6 +839,11 @@ p {
   object-fit: cover;
 }
 
+/* Household relocation (wide exterior shot): bias toward movers + truck */
+.service-card__image--household img {
+  object-position: 58% 46%;
+}
+
 /* Variant: artwork (transparent PNG) — let it breathe and add a subtle float */
 .service-card__image--artwork {
   background: linear-gradient(135deg, #f4f7fb 0%, #e9eef5 100%);
@@ -1812,6 +1817,14 @@ p {
 /* Data center: open rack / cabling slightly left of center */
 .services-detail__image--data-center img {
   object-position: 42% 48%;
+}
+
+.services-detail__image--household img {
+  object-position: 56% 50%;
+}
+
+.network-partner--household .network-partner__image img {
+  object-position: 55% 48%;
 }
 
 .services-detail__content h3 {
