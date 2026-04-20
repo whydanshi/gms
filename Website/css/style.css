@@ -1197,6 +1197,15 @@ p {
   display: block;
 }
 
+/* Movers / Clients photo: keep faces in frame when collage crops (was center 45%) */
+.collage__tall--clients img {
+  object-position: 48% 26%;
+}
+
+.collage__img--clients img {
+  object-position: 48% 22%;
+}
+
 .collage__stack {
   display: contents;
 }
