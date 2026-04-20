@@ -1496,49 +1496,6 @@ p {
 }
 
 /* ==================================
-   ABOUT — Leadership grid
-   ================================== */
-.about-leaders-grid {
-  display: grid;
-  grid-template-columns: repeat(4, 1fr);
-  gap: 28px;
-}
-
-.about-leader {
-  text-align: center;
-}
-
-.about-leader img {
-  width: 100%;
-  aspect-ratio: 4 / 5;
-  object-fit: cover;
-  border-radius: var(--radius-lg);
-  filter: grayscale(1);
-  margin-bottom: 16px;
-  transition: filter var(--transition-base);
-}
-
-.about-leader:hover img {
-  filter: grayscale(0);
-}
-
-.about-leader h4 {
-  margin-bottom: 2px;
-}
-
-.about-leader span {
-  font-size: 0.85rem;
-  color: var(--blue-primary);
-  font-weight: var(--fw-medium);
-}
-
-.about-leader__bio {
-  font-size: 0.88rem;
-  color: var(--grey-mid);
-  margin-top: 10px;
-}
-
-/* ==================================
    ABOUT — Contact split
    ================================== */
 .about-contact-split {
@@ -2254,9 +2211,6 @@ p {
   .services-grid--four {
     grid-template-columns: repeat(2, 1fr);
   }
-  .about-leaders-grid {
-    grid-template-columns: repeat(2, 1fr);
-  }
   .about-contact-split {
     grid-template-columns: 1fr;
     gap: 40px;
@@ -2376,7 +2330,6 @@ p {
   }
   .about-vm-strip__inner { grid-template-columns: 1fr; gap: 28px; }
   .services-grid--four { grid-template-columns: 1fr; gap: 48px; }
-  .about-leaders-grid { grid-template-columns: 1fr 1fr; }
   .about-values-grid,
   .services-process__grid { grid-template-columns: 1fr; }
 
@@ -2500,8 +2453,6 @@ p {
 
   /* --- About page --- */
   .about-profile-stats { grid-template-columns: repeat(2, 1fr); gap: 12px; }
-  .about-leaders-grid { grid-template-columns: 1fr; }
-  .about-leader img { height: 240px; }
   .about-profile-section { padding-bottom: 70px; }
   .about-airplane { width: 80%; max-width: 300px; }
 
