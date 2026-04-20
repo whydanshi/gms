@@ -1295,13 +1295,16 @@ p {
 
 /* About hero uses the same cargo-ship asset as homepage slide 1 — match its focal point
    so the vessel isn’t lost to empty ocean when the short hero crops wide. */
+/* About hero: port-at-dusk photo — ship + crane sit in the left-of-center
+   band, with the skyline just above the horizon. Bias the crop so the ship
+   and the lit crane gantry stay in view inside the short/wide hero. */
 .page-hero--about .page-hero__bg img {
-  object-position: 52% 68%;
+  object-position: 35% 55%;
 }
 
 @media (max-width: 768px) {
   .page-hero--about .page-hero__bg img {
-    object-position: 50% 76%;
+    object-position: 30% 60%;
   }
 }
 
