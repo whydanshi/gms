@@ -1850,6 +1850,14 @@ p {
   object-position: 55% 48%;
 }
 
+.network-partner--ocean .network-partner__image img {
+  object-position: 50% 65%;
+}
+
+.network-partner--air .network-partner__image img {
+  object-position: 50% 30%;
+}
+
 .services-detail__content h3 {
   font-size: clamp(1.6rem, 3vw, 2.2rem);
   margin: 10px 0 12px;
