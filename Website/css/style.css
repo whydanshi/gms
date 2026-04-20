@@ -1439,6 +1439,21 @@ p {
   /* matches combined height of two stacked squares + 12px gap */
 }
 
+/* Smart crops for the About triptych so faces / subjects stay in frame
+   when the images are forced into 1:1 squares and a tall right column. */
+.about-profile-images img:nth-child(1) {
+  /* Client care: keep the advisor's face + phone in frame */
+  object-position: 50% 30%;
+}
+.about-profile-images img:nth-child(2) {
+  /* Office move: subject (mover with box) sits right-of-center */
+  object-position: 62% 38%;
+}
+.about-profile-images img:nth-child(3) {
+  /* Consultation: keep the people (upper half) rather than just the table */
+  object-position: 50% 38%;
+}
+
 /* Airplane — full-width wrapper sitting at the bottom of the section */
 .about-airplane-wrap {
   position: absolute;
