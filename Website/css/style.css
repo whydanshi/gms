@@ -961,14 +961,16 @@ p {
   position: relative;
   border-radius: var(--radius-lg);
   overflow: hidden;
+  aspect-ratio: 4 / 3;
 }
 
 .split__image img {
   width: 100%;
   height: 100%;
   object-fit: cover;
+  object-position: center 45%;
   border-radius: var(--radius-lg);
-  min-height: 480px;
+  display: block;
 }
 
 .split__badge {
@@ -1191,6 +1193,8 @@ p {
   width: 100%;
   height: 100%;
   object-fit: cover;
+  object-position: center 45%;
+  display: block;
 }
 
 .collage__stack {
@@ -1206,6 +1210,8 @@ p {
   width: 100%;
   height: 100%;
   object-fit: cover;
+  object-position: center 45%;
+  display: block;
 }
 
 /* ==================================
@@ -1230,6 +1236,7 @@ p {
   width: 100%;
   height: 100%;
   object-fit: cover;
+  object-position: center 40%;
 }
 
 .page-hero::after {
@@ -1819,13 +1826,15 @@ p {
 .services-detail__image {
   border-radius: var(--radius-lg);
   overflow: hidden;
-  height: 400px;
+  aspect-ratio: 4 / 3;
 }
 
 .services-detail__image img {
   width: 100%;
   height: 100%;
   object-fit: cover;
+  object-position: center 45%;
+  display: block;
 }
 
 .services-detail__content h3 {
@@ -2001,13 +2010,15 @@ p {
 .network-capabilities__image {
   border-radius: var(--radius-lg);
   overflow: hidden;
+  aspect-ratio: 4 / 3;
 }
 
 .network-capabilities__image img {
   width: 100%;
   height: 100%;
   object-fit: cover;
-  min-height: 380px;
+  object-position: center 45%;
+  display: block;
 }
 
 /* ==================================
@@ -2259,9 +2270,6 @@ p {
     grid-template-columns: 1fr;
     gap: 26px;
   }
-  .services-detail__image {
-    height: 320px;
-  }
   .services-detail--reverse .services-detail__image,
   .services-detail--reverse .services-detail__content {
     order: initial;
@@ -2336,7 +2344,6 @@ p {
   .service-card__body p { font-size: 1rem; }
 
   /* --- Service detail --- */
-  .services-detail__image { height: 260px; }
   .services-detail-list { gap: 48px; }
 
   /* --- Page Hero (inner pages) --- */
@@ -2400,12 +2407,10 @@ p {
   .network-grid { grid-template-columns: 1fr; }
   .network-partners-grid { grid-template-columns: 1fr; }
   .network-capabilities { grid-template-columns: 1fr; gap: 28px; }
-  .network-capabilities__image img { min-height: 240px; }
 
   /* --- Split layout --- */
   .split { grid-template-columns: 1fr; gap: 36px; }
   .split__image { order: -1; }
-  .split__image img { min-height: 280px; }
   .split__badge { width: 110px; height: 110px; bottom: 16px; left: 16px; }
   .split__badge .number { font-size: 1.7rem; }
   .split__badge .text { font-size: 0.6rem; }
@@ -2485,7 +2490,6 @@ p {
   .service-card { padding-top: 80px; }
   .service-card__image { width: 100px; height: 100px; }
   .services-grid { gap: 52px; }
-  .services-detail__image { height: 220px; }
   .services-detail-list { gap: 40px; }
   .services-detail__content h3 { font-size: clamp(1.3rem, 5vw, 1.8rem); }
 
@@ -2519,7 +2523,6 @@ p {
   .network-card { padding: 22px 18px; }
   .network-partner__image { height: 180px; }
   .network-partner__body { padding: 18px; }
-  .network-capabilities__image img { min-height: 200px; }
 
   /* --- Stats strip --- */
   .stats-strip__item { padding: 20px 12px; }
