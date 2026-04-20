@@ -1305,6 +1305,17 @@ p {
   }
 }
 
+/* Services hero (plane + containers): bias toward top of frame so the aircraft nose isn’t clipped */
+.page-hero--services .page-hero__bg img {
+  object-position: 50% 24%;
+}
+
+@media (max-width: 768px) {
+  .page-hero--services .page-hero__bg img {
+    object-position: 48% 30%;
+  }
+}
+
 .page-hero--image-only { align-items: stretch; }
 
 /* --- Services intro (below hero) --- */
