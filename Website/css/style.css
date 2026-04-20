@@ -1809,6 +1809,11 @@ p {
   object-position: 58% 42%;
 }
 
+/* Data center: open rack / cabling slightly left of center */
+.services-detail__image--data-center img {
+  object-position: 42% 48%;
+}
+
 .services-detail__content h3 {
   font-size: clamp(1.6rem, 3vw, 2.2rem);
   margin: 10px 0 12px;
