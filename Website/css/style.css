@@ -1865,6 +1865,12 @@ p {
   object-position: 55% 48%;
 }
 
+/* Relocation partners: hand + wooden house sits left-of-center in the upper
+   third — bias crop so the gesture stays in frame. */
+.network-partner--relocation .network-partner__image img {
+  object-position: 42% 42%;
+}
+
 .network-partner--ocean .network-partner__image img {
   object-position: 50% 65%;
 }
