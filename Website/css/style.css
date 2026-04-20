@@ -1293,6 +1293,18 @@ p {
   min-height: clamp(420px, 56vh, 640px);
 }
 
+/* About hero uses the same cargo-ship asset as homepage slide 1 — match its focal point
+   so the vessel isn’t lost to empty ocean when the short hero crops wide. */
+.page-hero--about .page-hero__bg img {
+  object-position: 52% 68%;
+}
+
+@media (max-width: 768px) {
+  .page-hero--about .page-hero__bg img {
+    object-position: 50% 76%;
+  }
+}
+
 .page-hero--image-only { align-items: stretch; }
 
 /* --- Services intro (below hero) --- */
