@@ -8,7 +8,7 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;1,400;1,600&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="css/style.css?v=11">
+  <link rel="stylesheet" href="css/style.css?v=12">
 </head>
 <body>
 
@@ -114,30 +114,6 @@
     </div>
   </section>
 
-  <!-- Stats Strip -->
-  <section class="stats-strip">
-    <div class="container">
-      <div class="stats-strip__inner">
-        <div class="stats-strip__item reveal">
-          <div class="stats-strip__number" data-count="300">0</div>
-          <span class="stats-strip__label">Locations Worldwide</span>
-        </div>
-        <div class="stats-strip__item reveal">
-          <div class="stats-strip__number" data-count="1200">0</div>
-          <span class="stats-strip__label">Projects Delivered</span>
-        </div>
-        <div class="stats-strip__item reveal">
-          <div class="stats-strip__number" data-count="25">0</div>
-          <span class="stats-strip__label">Years of Excellence</span>
-        </div>
-        <div class="stats-strip__item reveal">
-          <div class="stats-strip__number" data-count="450">0</div>
-          <span class="stats-strip__label">Team Members</span>
-        </div>
-      </div>
-    </div>
-  </section>
-
   <!-- India Network -->
   <section class="section">
     <div class="container">
@@ -151,34 +127,74 @@
         </div>
       </div>
 
-      <div class="network-grid reveal">
-        <div class="network-card">
-          <div class="network-card__icon">
-            <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z"/><circle cx="12" cy="10" r="3"/></svg>
-          </div>
-          <h4>North India</h4>
-          <p>Gurugram (HQ), Delhi NCR, Chandigarh, Jaipur, Lucknow, Dehradun</p>
+      <div class="india-map-wrap reveal">
+        <div class="india-map">
+          <svg viewBox="0 0 600 720" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Map of India showing GMS presence">
+            <path class="india-map__shape" d="M145,48 L248,120 L413,217 L600,210 L538,337 L503,373 L422,362 L393,410 L317,465 L255,579 L197,698 L166,662 L145,579 L124,519 L99,434 L97,374 L21,349 L0,325 L41,313 L41,241 L124,169 L166,96 Z" />
+
+            <!-- North -->
+            <g class="india-map__region" data-region="north">
+              <circle class="india-map__dot india-map__dot--hq" cx="187" cy="206" r="9"/>
+              <circle class="india-map__dot" cx="188" cy="200" r="5"/>
+              <circle class="india-map__dot" cx="182" cy="151" r="5"/>
+              <circle class="india-map__dot" cx="161" cy="243" r="5"/>
+              <circle class="india-map__dot" cx="268" cy="245" r="5"/>
+              <circle class="india-map__dot" cx="208" cy="161" r="5"/>
+              <text class="india-map__hq-label" x="200" y="210">Gurugram (HQ)</text>
+            </g>
+
+            <!-- West -->
+            <g class="india-map__region" data-region="west">
+              <circle class="india-map__dot" cx="101" cy="432" r="5"/>
+              <circle class="india-map__dot" cx="121" cy="445" r="5"/>
+              <circle class="india-map__dot" cx="95" cy="337" r="5"/>
+              <circle class="india-map__dot" cx="107" cy="355" r="5"/>
+              <circle class="india-map__dot" cx="100" cy="382" r="5"/>
+            </g>
+
+            <!-- South -->
+            <g class="india-map__region" data-region="south">
+              <circle class="india-map__dot" cx="199" cy="580" r="5"/>
+              <circle class="india-map__dot" cx="254" cy="577" r="5"/>
+              <circle class="india-map__dot" cx="218" cy="474" r="5"/>
+              <circle class="india-map__dot" cx="171" cy="653" r="5"/>
+              <circle class="india-map__dot" cx="186" cy="626" r="5"/>
+              <circle class="india-map__dot" cx="315" cy="467" r="5"/>
+            </g>
+
+            <!-- East -->
+            <g class="india-map__region" data-region="east">
+              <circle class="india-map__dot" cx="421" cy="348" r="5"/>
+              <circle class="india-map__dot" cx="368" cy="404" r="5"/>
+              <circle class="india-map__dot" cx="491" cy="262" r="5"/>
+              <circle class="india-map__dot" cx="354" cy="275" r="5"/>
+              <circle class="india-map__dot" cx="358" cy="330" r="5"/>
+              <circle class="india-map__dot" cx="414" cy="361" r="5"/>
+            </g>
+          </svg>
         </div>
-        <div class="network-card">
-          <div class="network-card__icon">
-            <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z"/><circle cx="12" cy="10" r="3"/></svg>
+
+        <div class="india-map__legend">
+          <div class="india-map__region-card" data-region="north">
+            <div class="india-map__region-swatch"></div>
+            <h4>North India</h4>
+            <p>Gurugram (HQ), Delhi NCR, Chandigarh, Jaipur, Lucknow, Dehradun</p>
           </div>
-          <h4>West India</h4>
-          <p>Mumbai, Pune, Ahmedabad, Baroda, Surat, JNPT &amp; Mundra Ports</p>
-        </div>
-        <div class="network-card">
-          <div class="network-card__icon">
-            <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z"/><circle cx="12" cy="10" r="3"/></svg>
+          <div class="india-map__region-card" data-region="west">
+            <div class="india-map__region-swatch"></div>
+            <h4>West India</h4>
+            <p>Mumbai, Pune, Ahmedabad, Baroda, Surat, JNPT &amp; Mundra Ports</p>
           </div>
-          <h4>South India</h4>
-          <p>Bengaluru, Chennai, Hyderabad, Kochi, Coimbatore, Visakhapatnam</p>
-        </div>
-        <div class="network-card">
-          <div class="network-card__icon">
-            <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z"/><circle cx="12" cy="10" r="3"/></svg>
+          <div class="india-map__region-card" data-region="south">
+            <div class="india-map__region-swatch"></div>
+            <h4>South India</h4>
+            <p>Bengaluru, Chennai, Hyderabad, Kochi, Coimbatore, Visakhapatnam</p>
           </div>
-          <h4>East India</h4>
-          <p>Kolkata, Bhubaneswar, Guwahati, Patna, Ranchi, Haldia Port</p>
+          <div class="india-map__region-card" data-region="east">
+            <div class="india-map__region-swatch"></div>
+            <h4>East India</h4>
+            <p>Kolkata, Bhubaneswar, Guwahati, Patna, Ranchi, Haldia Port</p>
+          </div>
         </div>
       </div>
     </div>
@@ -312,11 +328,11 @@
           <h4>Contact</h4>
           <div class="footer__contact-item">
             <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z"/><circle cx="12" cy="10" r="3"/></svg>
-            <span>Suite 435-436, Tower-B, Spazedge<br>Sohna Road, Sector- 47, Gurugram (Haryana) - 122018</span>
+            <span>Suite 443, Tower-B, Spazedge<br>Sohna Road, Sector-47, Gurugram (Haryana) - 122018</span>
           </div>
           <div class="footer__contact-item">
             <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07 19.5 19.5 0 01-6-6 19.79 19.79 0 01-3.07-8.67A2 2 0 014.11 2h3a2 2 0 012 1.72c.127.96.361 1.903.7 2.81a2 2 0 01-.45 2.11L8.09 9.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0122 16.92z"/></svg>
-            <span>+91 74285 04111</span>
+            <span>+91 74285 04111, +91 97737 89345</span>
           </div>
           <div class="footer__contact-item">
             <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>

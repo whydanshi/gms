@@ -651,6 +651,14 @@ p {
   gap: 40px;
 }
 
+.hero__bottom--no-stats {
+  justify-content: flex-end;
+}
+
+.hero__bottom--no-stats .hero__meta {
+  max-width: 420px;
+}
+
 .hero__stats {
   display: grid;
   grid-template-columns: 1fr 1fr;
@@ -1998,6 +2006,100 @@ p {
   line-height: 1.6;
 }
 
+/* India map section */
+.india-map-wrap {
+  display: grid;
+  grid-template-columns: minmax(0, 1.15fr) minmax(0, 1fr);
+  gap: 60px;
+  align-items: center;
+}
+
+.india-map {
+  position: relative;
+  width: 100%;
+  max-width: 520px;
+  margin: 0 auto;
+}
+
+.india-map svg {
+  width: 100%;
+  height: auto;
+  display: block;
+}
+
+.india-map__shape {
+  fill: #f5ebe0;
+  stroke: rgba(164, 41, 43, 0.45);
+  stroke-width: 1.5;
+  stroke-linejoin: round;
+}
+
+.india-map__dot {
+  fill: var(--red-primary, #a4292b);
+  stroke: #fff;
+  stroke-width: 1.5;
+  transition: transform 0.2s ease;
+  transform-origin: center;
+  transform-box: fill-box;
+}
+
+.india-map__dot--hq {
+  fill: none;
+  stroke: var(--red-primary, #a4292b);
+  stroke-width: 2;
+  opacity: 0.5;
+  animation: indiaPulse 2.2s ease-out infinite;
+  transform-origin: center;
+  transform-box: fill-box;
+}
+
+@keyframes indiaPulse {
+  0%   { transform: scale(0.6); opacity: 0.7; }
+  100% { transform: scale(1.8); opacity: 0; }
+}
+
+.india-map__hq-label {
+  font-family: 'Plus Jakarta Sans', sans-serif;
+  font-size: 11px;
+  font-weight: 600;
+  fill: #1a1a1a;
+  letter-spacing: 0.02em;
+}
+
+.india-map__legend {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 16px;
+}
+
+.india-map__region-card {
+  background: var(--off-white);
+  border: 1px solid var(--grey-light);
+  border-radius: var(--radius-md);
+  padding: 20px 18px;
+  position: relative;
+}
+
+.india-map__region-swatch {
+  width: 24px;
+  height: 4px;
+  background: var(--red-primary, #a4292b);
+  border-radius: 2px;
+  margin-bottom: 12px;
+}
+
+.india-map__region-card h4 {
+  margin: 0 0 6px;
+  font-size: 1rem;
+}
+
+.india-map__region-card p {
+  font-size: 0.86rem;
+  color: var(--grey-dark);
+  line-height: 1.55;
+  margin: 0;
+}
+
 .network-partners-grid {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
@@ -2329,6 +2431,7 @@ p {
   .network-grid { grid-template-columns: repeat(2, 1fr); }
   .network-partners-grid { grid-template-columns: 1fr; }
   .network-capabilities { grid-template-columns: 1fr; gap: 36px; }
+  .india-map-wrap { grid-template-columns: 1fr; gap: 40px; }
   .contact-intro-section .section-header-split {
     grid-template-columns: 1fr;
     gap: 20px;
@@ -2452,6 +2555,7 @@ p {
   /* --- Global Network page --- */
   .network-grid { grid-template-columns: 1fr; }
   .network-partners-grid { grid-template-columns: 1fr; }
+  .india-map__legend { grid-template-columns: 1fr; }
   .network-capabilities { grid-template-columns: 1fr; gap: 28px; }
 
   /* --- Split layout --- */
