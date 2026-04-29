@@ -16,3 +16,11 @@ Thumbs.db
 
 # Dependencies (if you add any later)
 node_modules/
+
+# Source/raw images that have been compressed to .webp for the site
+# Keep these on disk locally as source-of-truth, but don't ship them to production.
+Website/assets/Final Images/
+Website/assets/IMG *.png
+Website/assets/ChatGPT Image*.png
+Website/assets/containers.jpg.jpeg
+Website/assets/unmatched Reliability Final image.png
