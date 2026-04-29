@@ -8,6 +8,7 @@ document.addEventListener('DOMContentLoaded', () => {
   initCounters();
   initQuoteModal();
   initContactCopy();
+  initIndiaMapTooltips();
 });
 
 function initHeroCarousel() {
@@ -316,6 +317,62 @@ function initContactCopy() {
       } else {
         reset();
       }
+    });
+  });
+}
+
+function initIndiaMapTooltips() {
+  const mapDots = document.querySelectorAll('.india-map__dot');
+  if (!mapDots.length) return;
+
+  mapDots.forEach((dot) => {
+    const title = dot.querySelector('title');
+    if (!title) return;
+
+    const locationName = title.textContent;
+
+    dot.addEventListener('mouseenter', () => {
+      const tooltip = document.createElement('div');
+      tooltip.className = 'india-map__tooltip';
+      tooltip.textContent = locationName;
+      tooltip.style.cssText = `
+        position: fixed;
+        background: rgba(0, 0, 0, 0.85);
+        color: #fff;
+        padding: 6px 10px;
+        border-radius: 4px;
+        font-size: 12px;
+        font-weight: 500;
+        white-space: nowrap;
+        pointer-events: none;
+        z-index: 1000;
+        font-family: 'Plus Jakarta Sans', sans-serif;
+      `;
+      
+      document.body.appendChild(tooltip);
+      
+      const rect = dot.getBoundingClientRect();
+      const tooltipRect = tooltip.getBoundingClientRect();
+      
+      tooltip.style.left = (rect.left + rect.width / 2 - tooltipRect.width / 2) + 'px';
+      tooltip.style.top = (rect.top - tooltipRect.height - 8) + 'px';
+      
+      const moveTooltip = () => {
+        const newRect = dot.getBoundingClientRect();
+        const newTooltipRect = tooltip.getBoundingClientRect();
+        tooltip.style.left = (newRect.left + newRect.width / 2 - newTooltipRect.width / 2) + 'px';
+        tooltip.style.top = (newRect.top - newTooltipRect.height - 8) + 'px';
+      };
+      
+      document.addEventListener('mousemove', moveTooltip);
+      
+      const handleMouseLeave = () => {
+        tooltip.remove();
+        document.removeEventListener('mousemove', moveTooltip);
+        dot.removeEventListener('mouseleave', handleMouseLeave);
+      };
+      
+      dot.addEventListener('mouseleave', handleMouseLeave);
     });
   });
 }

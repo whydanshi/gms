@@ -2009,7 +2009,7 @@ p {
 /* India map section */
 .india-map-wrap {
   display: grid;
-  grid-template-columns: minmax(0, 1.15fr) minmax(0, 1fr);
+  grid-template-columns: 1fr;
   gap: 60px;
   align-items: center;
 }
@@ -2017,87 +2017,46 @@ p {
 .india-map {
   position: relative;
   width: 100%;
-  max-width: 520px;
+  max-width: 700px;
   margin: 0 auto;
 }
 
-.india-map svg {
+/* Container holds the SVG map with image and circles in unified coordinate space */
+.india-map__container {
+  position: relative;
+  display: block;
+  width: 100%;
+}
+
+/* SVG overlay now contains both the image and circles in same viewBox */
+.india-map__overlay {
   width: 100%;
   height: auto;
   display: block;
+  pointer-events: auto;
 }
 
-.india-map__shape {
-  fill: #f5ebe0;
-  stroke: rgba(164, 41, 43, 0.45);
-  stroke-width: 1.5;
-  stroke-linejoin: round;
+.india-map__overlay circle {
+  pointer-events: all;
 }
 
 .india-map__dot {
-  fill: var(--red-primary, #a4292b);
+  fill: #b0302f;
   stroke: #fff;
-  stroke-width: 1.5;
-  transition: transform 0.2s ease;
-  transform-origin: center;
-  transform-box: fill-box;
+  stroke-width: 2;
+  transition: all 0.3s ease;
+  cursor: pointer;
+  filter: drop-shadow(0 2px 4px rgba(0, 0, 0, 0.2));
 }
 
-.india-map__dot--hq {
-  fill: none;
-  stroke: var(--red-primary, #a4292b);
-  stroke-width: 2;
-  opacity: 0.5;
-  animation: indiaPulse 2.2s ease-out infinite;
-  transform-origin: center;
-  transform-box: fill-box;
+.india-map__dot:hover {
+  fill: rgba(176, 48, 47, 0.8);
+  filter: drop-shadow(0 4px 12px rgba(176, 48, 47, 0.4));
 }
 
 @keyframes indiaPulse {
-  0%   { transform: scale(0.6); opacity: 0.7; }
-  100% { transform: scale(1.8); opacity: 0; }
-}
-
-.india-map__hq-label {
-  font-family: 'Plus Jakarta Sans', sans-serif;
-  font-size: 11px;
-  font-weight: 600;
-  fill: #1a1a1a;
-  letter-spacing: 0.02em;
-}
-
-.india-map__legend {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 16px;
-}
-
-.india-map__region-card {
-  background: var(--off-white);
-  border: 1px solid var(--grey-light);
-  border-radius: var(--radius-md);
-  padding: 20px 18px;
-  position: relative;
-}
-
-.india-map__region-swatch {
-  width: 24px;
-  height: 4px;
-  background: var(--red-primary, #a4292b);
-  border-radius: 2px;
-  margin-bottom: 12px;
-}
-
-.india-map__region-card h4 {
-  margin: 0 0 6px;
-  font-size: 1rem;
-}
-
-.india-map__region-card p {
-  font-size: 0.86rem;
-  color: var(--grey-dark);
-  line-height: 1.55;
-  margin: 0;
+  0%   { filter: drop-shadow(0 0 4px rgba(164, 41, 43, 0.8)); }
+  100% { filter: drop-shadow(0 0 40px rgba(164, 41, 43, 0)); }
 }
 
 .network-partners-grid {
