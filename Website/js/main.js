@@ -9,6 +9,8 @@ document.addEventListener('DOMContentLoaded', () => {
   initQuoteModal();
   initContactCopy();
   initIndiaMapTooltips();
+  initInquiryFollowUp();
+  initCopyGuard();
 });
 
 function initHeroCarousel() {
@@ -374,5 +376,233 @@ function initIndiaMapTooltips() {
       
       dot.addEventListener('mouseleave', handleMouseLeave);
     });
+  });
+}
+
+/* =============================================================
+   Inquiry follow-up: when a user picks Household / Relocation /
+   Pet / Fine Art / Auto, ask Within India vs International and
+   show searchable from-to city or country pickers.
+   ============================================================= */
+
+const FOLLOWUP_INQUIRIES = new Set([
+  'household',
+  'destination',
+  'pet',
+  'fine-art',
+  'auto'
+]);
+
+const INDIA_CITIES = [
+  'Agra','Ahmedabad','Ajmer','Aligarh','Allahabad','Amravati','Amritsar','Asansol','Aurangabad','Bareilly',
+  'Belgaum','Bengaluru','Bhavnagar','Bhilai','Bhiwandi','Bhopal','Bhubaneswar','Bikaner','Bilaspur','Chandigarh',
+  'Chennai','Coimbatore','Cuttack','Dehradun','Delhi','Dhanbad','Durgapur','Erode','Faridabad','Firozabad',
+  'Ghaziabad','Goa','Gorakhpur','Gulbarga','Guntur','Gurugram','Guwahati','Gwalior','Howrah','Hubli',
+  'Hyderabad','Indore','Jabalpur','Jaipur','Jalandhar','Jammu','Jamnagar','Jamshedpur','Jhansi','Jodhpur',
+  'Kakinada','Kalyan-Dombivli','Kannur','Kanpur','Kochi','Kolhapur','Kolkata','Kollam','Kota','Kozhikode',
+  'Kurnool','Lucknow','Ludhiana','Madurai','Maheshtala','Malappuram','Mangaluru','Mathura','Meerut','Mira-Bhayandar',
+  'Moradabad','Mumbai','Mysuru','Nagpur','Nanded','Nashik','Navi Mumbai','Nellore','New Delhi','Noida',
+  'Patna','Pimpri-Chinchwad','Pondicherry','Prayagraj','Pune','Purnia','Raipur','Rajahmundry','Rajkot','Ranchi',
+  'Rohtak','Rourkela','Saharanpur','Salem','Sangli','Shillong','Shimla','Siliguri','Solapur','Srinagar',
+  'Surat','Thane','Thiruvananthapuram','Thrissur','Tiruchirappalli','Tirunelveli','Tirupati','Tirupur','Tumkur','Udaipur',
+  'Ujjain','Vadodara','Varanasi','Vasai-Virar','Vellore','Vijayawada','Visakhapatnam','Warangal'
+];
+
+const COUNTRIES = [
+  'Afghanistan','Albania','Algeria','Andorra','Angola','Argentina','Armenia','Australia','Austria','Azerbaijan',
+  'Bahamas','Bahrain','Bangladesh','Barbados','Belarus','Belgium','Belize','Benin','Bhutan','Bolivia',
+  'Bosnia and Herzegovina','Botswana','Brazil','Brunei','Bulgaria','Burkina Faso','Burundi','Cambodia','Cameroon','Canada',
+  'Cape Verde','Central African Republic','Chad','Chile','China','Colombia','Comoros','Congo','Costa Rica','Croatia',
+  'Cuba','Cyprus','Czech Republic','Denmark','Djibouti','Dominica','Dominican Republic','Ecuador','Egypt','El Salvador',
+  'Equatorial Guinea','Eritrea','Estonia','Eswatini','Ethiopia','Fiji','Finland','France','Gabon','Gambia',
+  'Georgia','Germany','Ghana','Greece','Grenada','Guatemala','Guinea','Guinea-Bissau','Guyana','Haiti',
+  'Honduras','Hungary','Iceland','India','Indonesia','Iran','Iraq','Ireland','Israel','Italy',
+  'Ivory Coast','Jamaica','Japan','Jordan','Kazakhstan','Kenya','Kiribati','Kuwait','Kyrgyzstan','Laos',
+  'Latvia','Lebanon','Lesotho','Liberia','Libya','Liechtenstein','Lithuania','Luxembourg','Madagascar','Malawi',
+  'Malaysia','Maldives','Mali','Malta','Marshall Islands','Mauritania','Mauritius','Mexico','Micronesia','Moldova',
+  'Monaco','Mongolia','Montenegro','Morocco','Mozambique','Myanmar','Namibia','Nauru','Nepal','Netherlands',
+  'New Zealand','Nicaragua','Niger','Nigeria','North Korea','North Macedonia','Norway','Oman','Pakistan','Palau',
+  'Palestine','Panama','Papua New Guinea','Paraguay','Peru','Philippines','Poland','Portugal','Qatar','Romania',
+  'Russia','Rwanda','Saint Kitts and Nevis','Saint Lucia','Saint Vincent and the Grenadines','Samoa','San Marino',
+  'Sao Tome and Principe','Saudi Arabia','Senegal','Serbia','Seychelles','Sierra Leone','Singapore','Slovakia','Slovenia',
+  'Solomon Islands','Somalia','South Africa','South Korea','South Sudan','Spain','Sri Lanka','Sudan','Suriname',
+  'Sweden','Switzerland','Syria','Taiwan','Tajikistan','Tanzania','Thailand','Timor-Leste','Togo','Tonga',
+  'Trinidad and Tobago','Tunisia','Turkey','Turkmenistan','Tuvalu','Uganda','Ukraine','United Arab Emirates','United Kingdom',
+  'United States','Uruguay','Uzbekistan','Vanuatu','Vatican City','Venezuela','Vietnam','Yemen','Zambia','Zimbabwe'
+];
+
+function initInquiryFollowUp() {
+  const selects = document.querySelectorAll('[data-inquiry-select]');
+  if (!selects.length) return;
+
+  selects.forEach((select) => {
+    const panel = findFollowupPanel(select);
+    if (!panel) return;
+
+    select.addEventListener('change', () => {
+      renderFollowup(select, panel);
+    });
+  });
+}
+
+function findFollowupPanel(select) {
+  const form = select.closest('form');
+  if (!form) return null;
+  return form.querySelector('[data-inquiry-followup]');
+}
+
+function renderFollowup(select, panel) {
+  const value = select.value;
+  if (!FOLLOWUP_INQUIRIES.has(value)) {
+    panel.innerHTML = '';
+    panel.hidden = true;
+    return;
+  }
+
+  panel.hidden = false;
+  panel.innerHTML = `
+    <div class="inquiry-followup__inner">
+      <div class="inquiry-followup__row">
+        <span class="inquiry-followup__label">Where is the move?</span>
+        <div class="inquiry-followup__segmented" role="radiogroup" aria-label="Move scope">
+          <label><input type="radio" name="scope-${uid()}" value="india" checked> Within India</label>
+          <label><input type="radio" name="scope-${uid()}" value="international"> International</label>
+        </div>
+      </div>
+      <div class="inquiry-followup__pickers" data-pickers></div>
+    </div>
+  `;
+
+  const radios = panel.querySelectorAll('input[type="radio"]');
+  const pickers = panel.querySelector('[data-pickers]');
+  const renderPickers = (scope) => {
+    const list = scope === 'india' ? INDIA_CITIES : COUNTRIES;
+    const labelType = scope === 'india' ? 'city' : 'country';
+    pickers.innerHTML = `
+      <div class="inquiry-followup__row inquiry-followup__row--two">
+        ${buildComboboxMarkup('from', `From ${labelType}`)}
+        ${buildComboboxMarkup('to', `To ${labelType}`)}
+      </div>
+    `;
+    pickers.querySelectorAll('[data-combobox]').forEach((cb) => initCombobox(cb, list));
+  };
+
+  renderPickers('india');
+  radios.forEach((r) => {
+    r.addEventListener('change', () => renderPickers(r.value));
+  });
+}
+
+let _uid = 0;
+function uid() { _uid += 1; return 'fu' + _uid; }
+
+function buildComboboxMarkup(role, label) {
+  const id = uid();
+  return `
+    <div class="combobox" data-combobox data-role="${role}">
+      <input type="text" class="combobox__input" placeholder="${label}" autocomplete="off" aria-label="${label}" id="${id}">
+      <ul class="combobox__list" role="listbox" hidden></ul>
+    </div>
+  `;
+}
+
+function initCombobox(root, options) {
+  const input = root.querySelector('.combobox__input');
+  const list = root.querySelector('.combobox__list');
+  if (!input || !list) return;
+
+  const filter = (q) => {
+    const norm = q.trim().toLowerCase();
+    const limit = 60;
+    const matched = norm
+      ? options.filter((o) => o.toLowerCase().includes(norm)).slice(0, limit)
+      : options.slice(0, limit);
+    return matched;
+  };
+
+  const render = (q) => {
+    const matched = filter(q);
+    list.innerHTML = '';
+    matched.forEach((opt) => {
+      const li = document.createElement('li');
+      li.className = 'combobox__option';
+      li.role = 'option';
+      li.textContent = opt;
+      li.addEventListener('mousedown', (e) => {
+        e.preventDefault();
+        input.value = opt;
+        list.hidden = true;
+      });
+      list.appendChild(li);
+    });
+    const otherLi = document.createElement('li');
+    otherLi.className = 'combobox__option combobox__option--other';
+    otherLi.role = 'option';
+    otherLi.textContent = 'Other (type to specify)';
+    otherLi.addEventListener('mousedown', (e) => {
+      e.preventDefault();
+      input.value = q && !options.some((o) => o.toLowerCase() === q.toLowerCase()) ? q : 'Other';
+      list.hidden = true;
+      input.focus();
+    });
+    list.appendChild(otherLi);
+    list.hidden = matched.length === 0 && !q ? true : false;
+  };
+
+  input.addEventListener('focus', () => { render(input.value); list.hidden = false; });
+  input.addEventListener('input', () => { render(input.value); list.hidden = false; });
+  input.addEventListener('blur', () => {
+    setTimeout(() => { list.hidden = true; }, 120);
+  });
+}
+
+/* =============================================================
+   Copy guard: block Ctrl/Cmd+C, copy/cut events, and right-click
+   contextmenu globally — except on elements marked [data-allow-copy]
+   (phone, email, address). Also disable text selection via CSS in
+   style.css; this script is the runtime fallback.
+   ============================================================= */
+
+function initCopyGuard() {
+  const isAllowed = (target) => !!(target && target.closest && target.closest('[data-allow-copy]'));
+  const isFormField = (target) => {
+    if (!target) return false;
+    const t = target.tagName;
+    return t === 'INPUT' || t === 'TEXTAREA' || t === 'SELECT' || (target.isContentEditable === true);
+  };
+
+  document.addEventListener('copy', (e) => {
+    if (isAllowed(e.target) || isFormField(e.target)) return;
+    e.preventDefault();
+  });
+
+  document.addEventListener('cut', (e) => {
+    if (isAllowed(e.target) || isFormField(e.target)) return;
+    e.preventDefault();
+  });
+
+  document.addEventListener('contextmenu', (e) => {
+    if (isAllowed(e.target) || isFormField(e.target)) return;
+    e.preventDefault();
+  });
+
+  document.addEventListener('keydown', (e) => {
+    const ctrl = e.ctrlKey || e.metaKey;
+    if (!ctrl) return;
+    const k = (e.key || '').toLowerCase();
+    if (k !== 'c' && k !== 'x') return;
+    const target = document.activeElement;
+    if (isAllowed(target) || isFormField(target)) return;
+    const sel = window.getSelection && window.getSelection();
+    if (sel && sel.toString()) {
+      const node = sel.anchorNode && (sel.anchorNode.nodeType === 1 ? sel.anchorNode : sel.anchorNode.parentElement);
+      if (isAllowed(node)) return;
+    }
+    e.preventDefault();
+  });
+
+  document.addEventListener('dragstart', (e) => {
+    if (isAllowed(e.target) || isFormField(e.target)) return;
+    e.preventDefault();
   });
 }

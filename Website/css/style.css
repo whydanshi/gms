@@ -1236,6 +1236,11 @@ p {
   display: block;
 }
 
+/* Pet collage: include a bit of floor in crop */
+.collage__img img.collage__pet {
+  object-position: 50% 66%;
+}
+
 /* ==================================
    PAGE HERO (About / Services)
    ================================== */
@@ -1505,6 +1510,33 @@ p {
 .services-grid--four .service-card__image {
   width: 96px;
   height: 96px;
+}
+
+/* 5-column service grid variant (Core Values incl. Greener Moves) */
+.services-grid--five {
+  grid-template-columns: repeat(5, 1fr);
+  gap: 20px;
+}
+
+.services-grid--five .service-card {
+  padding-top: 72px;
+}
+
+.services-grid--five .service-card__image {
+  width: 88px;
+  height: 88px;
+}
+
+@media (max-width: 1100px) {
+  .services-grid--five { grid-template-columns: repeat(3, 1fr); }
+}
+
+@media (max-width: 720px) {
+  .services-grid--five { grid-template-columns: repeat(2, 1fr); gap: 24px; }
+}
+
+@media (max-width: 480px) {
+  .services-grid--five { grid-template-columns: 1fr; gap: 32px; }
 }
 
 /* ==================================
@@ -2653,4 +2685,226 @@ p {
 
   /* --- Mobile nav --- */
   .mobile-nav a { font-size: 1.2rem; }
+}
+
+/* ==================================
+   COPY GUARD — disable text selection across the site
+   except inside form fields and on phone/email/address spans
+   marked [data-allow-copy].
+   ================================== */
+body {
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+}
+
+input, textarea, select,
+[contenteditable="true"],
+[data-allow-copy], [data-allow-copy] * {
+  -webkit-user-select: text;
+  -moz-user-select: text;
+  -ms-user-select: text;
+  user-select: text;
+}
+
+[data-allow-copy] {
+  cursor: text;
+}
+
+/* ==================================
+   TESTIMONIALS
+   ================================== */
+.testimonials-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 28px;
+  margin-top: 8px;
+}
+
+.testimonial-card {
+  position: relative;
+  background: var(--white);
+  border: 1px solid var(--grey-light);
+  border-radius: var(--radius-lg);
+  padding: 40px 32px 32px;
+  box-shadow: var(--shadow-sm);
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+}
+
+.testimonial-card__quote-mark {
+  position: absolute;
+  top: 18px;
+  left: 24px;
+  font-size: 4.5rem;
+  line-height: 1;
+  color: var(--blue-primary);
+  font-family: Georgia, 'Times New Roman', serif;
+  opacity: 0.85;
+  pointer-events: none;
+}
+
+.testimonial-card__quote {
+  font-size: 1.02rem;
+  line-height: 1.65;
+  color: var(--charcoal);
+  margin-top: 28px;
+}
+
+.testimonial-card__author {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+  border-top: 1px solid var(--grey-light);
+  padding-top: 18px;
+}
+
+.testimonial-card__author strong {
+  color: var(--charcoal);
+  font-weight: var(--fw-semi);
+  font-size: 0.98rem;
+}
+
+.testimonial-card__author span {
+  color: var(--grey-dark);
+  font-size: 0.88rem;
+}
+
+@media (max-width: 820px) {
+  .testimonials-grid { grid-template-columns: 1fr; gap: 20px; }
+  .testimonial-card { padding: 36px 24px 28px; }
+}
+
+/* ==================================
+   INQUIRY FOLLOW-UP — Within India / International picker
+   + searchable city/country combobox
+   ================================== */
+.inquiry-followup {
+  margin: 4px 0 12px;
+}
+
+.inquiry-followup[hidden] { display: none; }
+
+.inquiry-followup__inner {
+  background: var(--off-white);
+  border: 1px solid var(--grey-light);
+  border-radius: var(--radius-md);
+  padding: 16px 18px;
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+}
+
+.inquiry-followup__row {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.inquiry-followup__row--two {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 12px;
+}
+
+.inquiry-followup__label {
+  font-size: 0.82rem;
+  font-weight: var(--fw-semi);
+  color: var(--charcoal);
+  letter-spacing: 0.02em;
+  text-transform: uppercase;
+}
+
+.inquiry-followup__segmented {
+  display: inline-flex;
+  background: var(--white);
+  border: 1px solid var(--grey-light);
+  border-radius: 999px;
+  padding: 4px;
+  width: fit-content;
+}
+
+.inquiry-followup__segmented label {
+  position: relative;
+  padding: 8px 18px;
+  font-size: 0.9rem;
+  color: var(--charcoal-light);
+  border-radius: 999px;
+  cursor: pointer;
+  transition: background var(--transition-fast), color var(--transition-fast);
+}
+
+.inquiry-followup__segmented input {
+  position: absolute;
+  opacity: 0;
+  pointer-events: none;
+}
+
+.inquiry-followup__segmented label:has(input:checked) {
+  background: var(--blue-primary);
+  color: var(--white);
+  font-weight: var(--fw-semi);
+}
+
+.combobox {
+  position: relative;
+}
+
+.combobox__input {
+  width: 100%;
+  padding: 12px 14px;
+  border: 1px solid var(--grey-light);
+  border-radius: var(--radius-sm);
+  background: var(--white);
+  font-size: 0.95rem;
+  color: var(--charcoal);
+  transition: border-color var(--transition-fast);
+}
+
+.combobox__input:focus {
+  border-color: var(--blue-primary);
+}
+
+.combobox__list {
+  position: absolute;
+  top: calc(100% + 4px);
+  left: 0;
+  right: 0;
+  background: var(--white);
+  border: 1px solid var(--grey-light);
+  border-radius: var(--radius-sm);
+  max-height: 240px;
+  overflow-y: auto;
+  z-index: 30;
+  box-shadow: var(--shadow-md);
+  list-style: none;
+  margin: 0;
+  padding: 4px 0;
+}
+
+.combobox__list[hidden] { display: none; }
+
+.combobox__option {
+  padding: 8px 14px;
+  font-size: 0.9rem;
+  color: var(--charcoal);
+  cursor: pointer;
+  transition: background var(--transition-fast);
+}
+
+.combobox__option:hover,
+.combobox__option:focus {
+  background: var(--off-white);
+}
+
+.combobox__option--other {
+  border-top: 1px solid var(--grey-light);
+  color: var(--blue-primary);
+  font-weight: var(--fw-semi);
+}
+
+@media (max-width: 480px) {
+  .inquiry-followup__row--two { grid-template-columns: 1fr; }
 }
