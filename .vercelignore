@@ -1,0 +1,20 @@
+#
+# Ignore large non-deploy assets.
+# The website lives in /Website and is safe to deploy.
+#
+
+# Large folders (source assets / notes)
+Content-New/
+Photos/
+Logos/
+Website Notes/
+EMS-Magazine-Photos/
+
+# Large standalone files
+*.pdf
+*.psd
+*.docx
+
+# Known big images at repo root
+A - 5.jpg
+
