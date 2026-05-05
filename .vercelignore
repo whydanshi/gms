@@ -10,6 +10,15 @@ Logos/
 Website Notes/
 EMS-Magazine-Photos/
 
+# Explicitly include the website assets (some ignore patterns may
+# accidentally match nested directories like Website/assets/photos).
+!Website/
+!Website/**
+!Website/assets/
+!Website/assets/**
+!Website/assets/photos/
+!Website/assets/photos/**
+
 # Large standalone files
 *.pdf
 *.psd
