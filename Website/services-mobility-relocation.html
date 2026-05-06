@@ -8,7 +8,7 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;1,400;1,600&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="css/style.css?v=16">
+  <link rel="stylesheet" href="css/style.css?v=17">
 </head>
 <body>
 
@@ -21,10 +21,10 @@
       <div class="navbar__links">
         <a href="about.html">About Us</a>
         <div class="navbar__dropdown">
-          <a href="services-mobility-relocation.html" class="navbar__dropdown-trigger active">Services</a>
+          <button type="button" class="navbar__dropdown-trigger active" aria-haspopup="true" aria-expanded="false">Services</button>
           <div class="navbar__mega-menu">
-            <div class="mega-menu__group">
-              <a href="services-mobility-relocation.html" class="mega-menu__category">Mobility &amp; Relocation Solutions</a>
+            <div class="mega-menu__group is-current">
+              <a href="services-mobility-relocation.html" class="mega-menu__category is-current" aria-current="page">Mobility &amp; Relocation Solutions</a>
               <div class="mega-menu__services">
                 <a href="services-mobility-relocation.html#household-relocation">Household Relocation</a>
                 <a href="services-mobility-relocation.html#corporate-mobility">Corporate Mobility Solutions</a>
@@ -68,7 +68,7 @@
     <div class="mobile-nav__accordion">
       <button class="mobile-nav__accordion-trigger">Services <span class="chevron">&#9662;</span></button>
       <div class="mobile-nav__accordion-panel">
-        <span class="mobile-nav__group-label">Mobility &amp; Relocation</span>
+        <span class="mobile-nav__group-label is-current">Mobility &amp; Relocation</span>
         <a href="services-mobility-relocation.html#household-relocation">Household Relocation</a>
         <a href="services-mobility-relocation.html#corporate-mobility">Corporate Mobility Solutions</a>
         <a href="services-mobility-relocation.html#destination-services">Relocation &amp; Destination Services</a>
@@ -101,6 +101,12 @@
   <!-- Hero intro — heading left, body + CTA right -->
   <section class="section services-intro">
     <div class="container">
+      <nav class="service-tabs reveal" aria-label="Service categories">
+        <span class="service-tabs__label">Service categories</span>
+        <a href="services-mobility-relocation.html" class="service-tabs__pill is-current" aria-current="page">Mobility &amp; Relocation</a>
+        <a href="services-business-infrastructure.html" class="service-tabs__pill">Business &amp; Infrastructure</a>
+        <a href="services-specialised-logistics.html" class="service-tabs__pill">Specialised Logistics</a>
+      </nav>
       <div class="section-header-split reveal">
         <div>
           <span class="label">Mobility &amp; Relocation Solutions</span>
@@ -264,6 +270,22 @@
     </div>
   </section>
 
+  <!-- Other service categories -->
+  <section class="section section--grey" aria-label="More service categories">
+    <div class="container">
+      <nav class="service-pager reveal" aria-label="Service category pagination">
+        <a href="services-specialised-logistics.html" class="service-pager__link service-pager__link--prev">
+          <span class="service-pager__direction">&larr; Previous category</span>
+          <span class="service-pager__title">Specialised Logistics &amp; Assets Care</span>
+        </a>
+        <a href="services-business-infrastructure.html" class="service-pager__link service-pager__link--next">
+          <span class="service-pager__direction">Next category &rarr;</span>
+          <span class="service-pager__title">Business &amp; Infrastructure Relocation</span>
+        </a>
+      </nav>
+    </div>
+  </section>
+
   <!-- CTA Banner -->
   <section class="cta-banner">
     <div class="container">
@@ -395,6 +417,6 @@
     </div>
   </div>
 
-  <script src="js/main.js?v=11"></script>
+  <script src="js/main.js?v=12"></script>
 </body>
 </html>

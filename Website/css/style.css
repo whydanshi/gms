@@ -278,6 +278,20 @@ p {
   cursor: pointer;
   display: inline-flex;
   align-items: center;
+  /* Reset native button so this works as both <a> and <button> */
+  background: transparent;
+  border: 0;
+  padding: 0;
+  font-family: inherit;
+  line-height: inherit;
+  letter-spacing: inherit;
+  -webkit-appearance: none;
+          appearance: none;
+}
+.navbar__dropdown-trigger:focus-visible {
+  outline: 2px solid var(--blue-primary);
+  outline-offset: 6px;
+  border-radius: 4px;
 }
 /* Dropdown affordance (active-page dot uses ::before so ::after stays free for chevron) */
 .navbar__dropdown-trigger::after {
@@ -2914,4 +2928,161 @@ input, textarea, select,
 
 @media (max-width: 480px) {
   .inquiry-followup__row--two { grid-template-columns: 1fr; }
+}
+
+/* ==================================
+   Services navigation — active state
+   ================================== */
+
+/* Mega-menu: highlight the bucket that matches the current page */
+.mega-menu__category.is-current {
+  color: var(--blue-primary);
+  background: rgba(164, 41, 43, 0.08);
+}
+.mega-menu__category.is-current::after {
+  content: '';
+  display: inline-block;
+  width: 6px;
+  height: 6px;
+  margin-left: 8px;
+  border-radius: 999px;
+  background: var(--blue-primary);
+  vertical-align: middle;
+  margin-bottom: 2px;
+}
+.mega-menu__group.is-current .mega-menu__services a.is-current,
+.mega-menu__services a.is-current {
+  color: var(--blue-primary);
+  font-weight: var(--fw-semi);
+}
+
+/* Mobile nav: highlight the active services group + its links */
+.mobile-nav__group-label.is-current {
+  color: var(--red-accent);
+}
+.mobile-nav__group-label.is-current::after {
+  content: '';
+  display: inline-block;
+  width: 5px;
+  height: 5px;
+  margin-left: 8px;
+  border-radius: 999px;
+  background: var(--red-accent);
+  vertical-align: middle;
+}
+
+/* ==================================
+   Services pages — bucket tabs strip
+   ================================== */
+.service-tabs {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  align-items: center;
+  margin-bottom: 36px;
+  padding-bottom: 22px;
+  border-bottom: 1px solid var(--grey-light);
+}
+.service-tabs__label {
+  font-size: 0.7rem;
+  font-weight: var(--fw-bold);
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--charcoal-light);
+  margin-right: 4px;
+}
+.service-tabs__pill {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 10px 18px;
+  font-size: 0.85rem;
+  font-weight: var(--fw-semi);
+  color: var(--charcoal-light);
+  background: var(--off-white);
+  border: 1px solid var(--grey-light);
+  border-radius: 999px;
+  transition: color var(--transition-fast), background var(--transition-fast),
+              border-color var(--transition-fast), transform var(--transition-fast);
+  white-space: nowrap;
+}
+.service-tabs__pill:hover {
+  color: var(--blue-primary);
+  background: rgba(164, 41, 43, 0.06);
+  border-color: rgba(164, 41, 43, 0.2);
+  transform: translateY(-1px);
+}
+.service-tabs__pill.is-current {
+  color: var(--white);
+  background: var(--blue-primary);
+  border-color: var(--blue-primary);
+  box-shadow: 0 6px 16px rgba(164, 41, 43, 0.22);
+  cursor: default;
+  pointer-events: none;
+}
+.service-tabs__pill.is-current::before {
+  content: '';
+  width: 6px;
+  height: 6px;
+  border-radius: 999px;
+  background: var(--white);
+}
+
+@media (max-width: 640px) {
+  .service-tabs { gap: 8px; }
+  .service-tabs__label {
+    width: 100%;
+    margin-bottom: 4px;
+  }
+  .service-tabs__pill {
+    padding: 8px 14px;
+    font-size: 0.8rem;
+  }
+}
+
+/* ==================================
+   Services pages — prev / next pager
+   ================================== */
+.service-pager {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 16px;
+  padding: 24px 0 8px;
+  border-top: 1px solid var(--grey-light);
+  margin-top: 24px;
+}
+.service-pager__link {
+  display: flex;
+  flex-direction: column;
+  padding: 18px 22px;
+  background: var(--white);
+  border: 1px solid var(--grey-light);
+  border-radius: var(--radius-md);
+  transition: border-color var(--transition-fast), background var(--transition-fast),
+              transform var(--transition-fast), box-shadow var(--transition-fast);
+}
+.service-pager__link:hover {
+  border-color: var(--blue-primary);
+  background: rgba(164, 41, 43, 0.04);
+  transform: translateY(-2px);
+  box-shadow: 0 10px 24px rgba(0, 0, 0, 0.06);
+}
+.service-pager__direction {
+  font-size: 0.7rem;
+  font-weight: var(--fw-bold);
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--charcoal-light);
+  margin-bottom: 6px;
+}
+.service-pager__title {
+  font-size: 1rem;
+  font-weight: var(--fw-semi);
+  color: var(--charcoal);
+}
+.service-pager__link:hover .service-pager__title { color: var(--blue-primary); }
+.service-pager__link--next { text-align: right; }
+
+@media (max-width: 640px) {
+  .service-pager { grid-template-columns: 1fr; }
 }

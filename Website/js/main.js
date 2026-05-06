@@ -152,21 +152,28 @@ function initMegaMenu() {
   var dropdown = document.querySelector('.navbar__dropdown');
   if (!dropdown) return;
 
+  var trigger = dropdown.querySelector('.navbar__dropdown-trigger');
   var megaMenu = dropdown.querySelector('.navbar__mega-menu');
   var groups = dropdown.querySelectorAll('.mega-menu__group');
   var closeTimer = null;
   var CLOSE_DELAY = 220;
 
+  function setExpanded(isOpen) {
+    if (trigger) trigger.setAttribute('aria-expanded', isOpen ? 'true' : 'false');
+  }
   function open() {
     if (closeTimer) { clearTimeout(closeTimer); closeTimer = null; }
     dropdown.classList.add('is-open');
+    setExpanded(true);
+  }
+  function close() {
+    dropdown.classList.remove('is-open');
+    groups.forEach(function(g) { g.classList.remove('is-expanded'); });
+    setExpanded(false);
   }
   function scheduleClose() {
     if (closeTimer) clearTimeout(closeTimer);
-    closeTimer = setTimeout(function() {
-      dropdown.classList.remove('is-open');
-      groups.forEach(function(g) { g.classList.remove('is-expanded'); });
-    }, CLOSE_DELAY);
+    closeTimer = setTimeout(close, CLOSE_DELAY);
   }
 
   dropdown.addEventListener('mouseenter', open);
@@ -176,6 +183,33 @@ function initMegaMenu() {
     megaMenu.addEventListener('mouseleave', scheduleClose);
   }
 
+  // Click on the "Services" label should NEVER navigate to a page —
+  // it only toggles the dropdown so the user can pick a bucket.
+  if (trigger) {
+    trigger.addEventListener('click', function(e) {
+      e.preventDefault();
+      if (dropdown.classList.contains('is-open')) {
+        close();
+      } else {
+        open();
+      }
+    });
+    trigger.addEventListener('keydown', function(e) {
+      if (e.key === 'Enter' || e.key === ' ' || e.key === 'ArrowDown') {
+        e.preventDefault();
+        open();
+      } else if (e.key === 'Escape') {
+        close();
+        trigger.blur();
+      }
+    });
+  }
+
+  // Click outside to close
+  document.addEventListener('click', function(e) {
+    if (!dropdown.contains(e.target)) close();
+  });
+
   groups.forEach(function(group) {
     group.addEventListener('mouseenter', function() {
       groups.forEach(function(g) { g.classList.remove('is-expanded'); });
@@ -183,9 +217,17 @@ function initMegaMenu() {
     });
   });
 
+  // Internal preview helper: open menu when ?openmenu is present (no UI impact).
+  if (location.search.indexOf('openmenu') !== -1) open();
+
   var trigger = document.querySelector('.mobile-nav__accordion-trigger');
   var panel = document.querySelector('.mobile-nav__accordion-panel');
   if (trigger && panel) {
+    // Auto-expand the services accordion on services pages so the active bucket is visible
+    if (document.querySelector('.mobile-nav__group-label.is-current')) {
+      trigger.classList.add('is-open');
+      panel.classList.add('is-open');
+    }
     trigger.addEventListener('click', function() {
       trigger.classList.toggle('is-open');
       panel.classList.toggle('is-open');
