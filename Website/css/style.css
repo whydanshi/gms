@@ -2100,15 +2100,20 @@ p {
   filter: drop-shadow(0 4px 12px rgba(176, 48, 47, 0.4));
 }
 
+/* Pins that should NOT show hover/tooltips (static overlay markers) */
+.india-map__dot--static,
+.india-map__label--static {
+  pointer-events: none;
+}
+.india-map__dot--static {
+  cursor: default;
+}
+
 .india-map__label {
-  fill: #2a2a2a;
-  font-size: 36px;
-  font-weight: 600;
-  font-family: 'Plus Jakarta Sans', sans-serif;
-  paint-order: stroke;
-  stroke: rgba(255, 255, 255, 0.92);
-  stroke-width: 8px;
-  stroke-linejoin: round;
+  fill: #111;
+  font-size: 40px;
+  font-weight: 700;
+  font-family: Arial, Helvetica, sans-serif;
 }
 
 @keyframes indiaPulse {
