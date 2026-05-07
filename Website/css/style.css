@@ -2111,9 +2111,9 @@ p {
 
 .india-map__label {
   fill: #111;
-  font-size: 40px;
-  font-weight: 700;
-  font-family: Arial, Helvetica, sans-serif;
+  font-size: 34px;
+  font-weight: 600;
+  font-family: Avenir, "Avenir Next", "Avenir Next LT Pro", "Nunito Sans", "Helvetica Neue", Arial, sans-serif;
 }
 
 @keyframes indiaPulse {
