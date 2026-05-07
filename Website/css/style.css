@@ -2100,6 +2100,17 @@ p {
   filter: drop-shadow(0 4px 12px rgba(176, 48, 47, 0.4));
 }
 
+.india-map__label {
+  fill: #2a2a2a;
+  font-size: 36px;
+  font-weight: 600;
+  font-family: 'Plus Jakarta Sans', sans-serif;
+  paint-order: stroke;
+  stroke: rgba(255, 255, 255, 0.92);
+  stroke-width: 8px;
+  stroke-linejoin: round;
+}
+
 @keyframes indiaPulse {
   0%   { filter: drop-shadow(0 0 4px rgba(164, 41, 43, 0.8)); }
   100% { filter: drop-shadow(0 0 40px rgba(164, 41, 43, 0)); }

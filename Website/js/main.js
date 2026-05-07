@@ -501,14 +501,15 @@ function renderFollowup(select, panel) {
     return;
   }
 
+  const scopeGroupName = `scope-${uid()}`;
   panel.hidden = false;
   panel.innerHTML = `
     <div class="inquiry-followup__inner">
       <div class="inquiry-followup__row">
         <span class="inquiry-followup__label">Where is the move?</span>
         <div class="inquiry-followup__segmented" role="radiogroup" aria-label="Move scope">
-          <label><input type="radio" name="scope-${uid()}" value="india" checked> Within India</label>
-          <label><input type="radio" name="scope-${uid()}" value="international"> International</label>
+          <label><input type="radio" name="${scopeGroupName}" value="india" checked> Within India</label>
+          <label><input type="radio" name="${scopeGroupName}" value="international"> International</label>
         </div>
       </div>
       <div class="inquiry-followup__pickers" data-pickers></div>
