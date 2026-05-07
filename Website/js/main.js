@@ -8,7 +8,6 @@ document.addEventListener('DOMContentLoaded', () => {
   initCounters();
   initQuoteModal();
   initContactCopy();
-  initIndiaMapTooltips();
   initInquiryFollowUp();
   initCopyGuard();
 });

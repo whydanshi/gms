@@ -2082,8 +2082,9 @@ p {
   pointer-events: auto;
 }
 
-.india-map__overlay circle {
-  pointer-events: all;
+/* Map is a static image (no hover/click interactions). */
+.india-map__overlay {
+  pointer-events: none;
 }
 
 .india-map__dot {
