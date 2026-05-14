@@ -8,7 +8,7 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;1,400;1,600&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="css/style.css?v=24">
+  <link rel="stylesheet" href="css/style.css?v=25">
 </head>
 <body>
 
@@ -383,30 +383,30 @@
         <h2 id="quote-modal-title" class="quote-modal__title">Get your quote</h2>
         <p class="quote-modal__subtitle">Share a few details about your move or logistics requirement and we will get back with a tailored proposal.</p>
       </div>
-      <form class="quote-form" onsubmit="return false;">
+      <form class="quote-form" data-contact-form>
         <div class="form-row">
-          <input type="text" placeholder="Name">
-          <input type="email" placeholder="Email Address">
+          <input type="text" name="name" placeholder="Name" required>
+          <input type="email" name="email" placeholder="Email Address" required>
         </div>
         <div class="form-row">
-          <input type="tel" placeholder="Phone Number">
-          <select data-inquiry-select>
+          <input type="tel" name="phone" placeholder="Phone Number" required>
+          <select data-inquiry-select name="inquiry_type" required>
             <option value="" disabled selected>Inquiry Type</option>
             <option value="household">Household Relocation</option>
-            <option value="corporate">Corporate Mobility</option>
+            <option value="corporate">Corporate Mobility Solutions</option>
             <option value="destination">Relocation &amp; Destination Services</option>
             <option value="pet">Pet Relocation</option>
             <option value="fine-art">Fine Art Logistics</option>
             <option value="auto">Automobile Transportation</option>
             <option value="office">Office &amp; IT Relocation</option>
             <option value="data-center">Data Center Migration</option>
-            <option value="warehousing">Warehousing</option>
+            <option value="warehousing">Warehousing Solutions</option>
             <option value="road-freight">Road Freight Solutions</option>
             <option value="other">Other</option>
           </select>
         </div>
         <div class="inquiry-followup" data-inquiry-followup hidden></div>
-        <textarea placeholder="Tell us about your requirements"></textarea>
+        <textarea name="message" placeholder="Tell us about your requirements"></textarea>
         <div class="quote-form__actions">
           <button type="submit" class="btn btn--primary">Send Message</button>
         </div>
@@ -417,6 +417,6 @@
     </div>
   </div>
 
-  <script src="js/main.js?v=17"></script>
+  <script src="js/main.js?v=19"></script>
 </body>
 </html>

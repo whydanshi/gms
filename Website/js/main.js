@@ -1,3 +1,11 @@
+/* =============================================================
+   Web3Forms access key
+   Sign up at https://web3forms.com and paste the key below.
+   While the key is the placeholder, form submissions will fail
+   gracefully with an error message.
+   ============================================================= */
+const WEB3FORMS_ACCESS_KEY = '89d83b96-20d3-46c4-b01b-0c74f967034c';
+
 document.addEventListener('DOMContentLoaded', () => {
   initHeroAnimation();
   initHeroCarousel();
@@ -9,6 +17,7 @@ document.addEventListener('DOMContentLoaded', () => {
   initQuoteModal();
   initContactCopy();
   initInquiryFollowUp();
+  initContactForms();
   initCopyGuard();
 });
 
@@ -507,8 +516,8 @@ function renderFollowup(select, panel) {
       <div class="inquiry-followup__row">
         <span class="inquiry-followup__label">Where is the move?</span>
         <div class="inquiry-followup__segmented" role="radiogroup" aria-label="Move scope">
-          <label><input type="radio" name="${scopeGroupName}" value="india" checked> Within India</label>
-          <label><input type="radio" name="${scopeGroupName}" value="international"> International</label>
+          <label><input type="radio" name="${scopeGroupName}" data-scope-input value="india" checked> Within India</label>
+          <label><input type="radio" name="${scopeGroupName}" data-scope-input value="international"> International</label>
         </div>
       </div>
       <div class="inquiry-followup__pickers" data-pickers></div>
@@ -540,9 +549,10 @@ function uid() { _uid += 1; return 'fu' + _uid; }
 
 function buildComboboxMarkup(role, label) {
   const id = uid();
+  const fieldName = role === 'from' ? 'from_location' : 'to_location';
   return `
     <div class="combobox" data-combobox data-role="${role}">
-      <input type="text" class="combobox__input" placeholder="${label}" autocomplete="off" aria-label="${label}" id="${id}">
+      <input type="text" class="combobox__input" name="${fieldName}" placeholder="${label}" autocomplete="off" aria-label="${label}" id="${id}">
       <ul class="combobox__list" role="listbox" hidden></ul>
     </div>
   `;
@@ -647,4 +657,156 @@ function initCopyGuard() {
     if (isAllowed(e.target) || isFormField(e.target)) return;
     e.preventDefault();
   });
+}
+
+/* =============================================================
+   Contact forms: POST to Web3Forms and show inline success state.
+   All forms tagged with [data-contact-form] are wired automatically.
+   Email recipient is configured on the Web3Forms account itself
+   (reach@gmscorporateservices.com).
+   ============================================================= */
+
+const INQUIRY_LABELS = {
+  'household': 'Household Relocation',
+  'corporate': 'Corporate Mobility Solutions',
+  'destination': 'Relocation & Destination Services',
+  'pet': 'Pet Relocation',
+  'fine-art': 'Fine Art Logistics',
+  'auto': 'Automobile Transportation',
+  'office': 'Office & IT Relocation',
+  'data-center': 'Data Center Migration',
+  'warehousing': 'Warehousing Solutions',
+  'road-freight': 'Road Freight Solutions',
+  'other': 'Other'
+};
+
+function initContactForms() {
+  const forms = document.querySelectorAll('form[data-contact-form]');
+  if (!forms.length) return;
+
+  forms.forEach((form) => {
+    form.setAttribute('novalidate', 'novalidate');
+    form.addEventListener('submit', (e) => {
+      e.preventDefault();
+      submitContactForm(form);
+    });
+  });
+}
+
+async function submitContactForm(form) {
+  if (form.dataset.submitting === '1') return;
+
+  const submitBtn = form.querySelector('button[type="submit"]');
+  const originalBtnLabel = submitBtn ? submitBtn.textContent : '';
+
+  if (!form.reportValidity()) return;
+
+  if (!WEB3FORMS_ACCESS_KEY || WEB3FORMS_ACCESS_KEY.indexOf('REPLACE_') === 0) {
+    showFormStatus(form, 'error', 'The form is not yet configured. Please email us at reach@gmscorporateservices.com.');
+    return;
+  }
+
+  const payload = buildContactPayload(form);
+
+  form.dataset.submitting = '1';
+  if (submitBtn) {
+    submitBtn.disabled = true;
+    submitBtn.textContent = 'Sending…';
+  }
+
+  try {
+    const response = await fetch('https://api.web3forms.com/submit', {
+      method: 'POST',
+      headers: {
+        'Accept': 'application/json'
+      },
+      body: payload
+    });
+
+    let data = {};
+    try { data = await response.json(); } catch (_) {}
+
+    if (response.ok && data && data.success) {
+      renderFormSuccess(form);
+    } else {
+      const msg = (data && data.message) || 'Something went wrong. Please try again or email reach@gmscorporateservices.com.';
+      showFormStatus(form, 'error', msg);
+      if (submitBtn) {
+        submitBtn.disabled = false;
+        submitBtn.textContent = originalBtnLabel;
+      }
+    }
+  } catch (err) {
+    showFormStatus(form, 'error', 'Network issue. Please try again or email reach@gmscorporateservices.com.');
+    if (submitBtn) {
+      submitBtn.disabled = false;
+      submitBtn.textContent = originalBtnLabel;
+    }
+  } finally {
+    form.dataset.submitting = '';
+  }
+}
+
+function buildContactPayload(form) {
+  const fd = new FormData(form);
+  fd.append('access_key', WEB3FORMS_ACCESS_KEY);
+
+  const name = (fd.get('name') || '').toString().trim() || 'Website visitor';
+  const inquiryRaw = (fd.get('inquiry_type') || '').toString();
+  const inquiryLabel = INQUIRY_LABELS[inquiryRaw] || inquiryRaw || 'General';
+
+  const scopeRadio = form.querySelector('[data-scope-input]:checked');
+  const scope = scopeRadio ? scopeRadio.value : '';
+  if (scope) {
+    fd.set('move_scope', scope === 'india' ? 'Within India' : 'International');
+  }
+
+  fd.set('inquiry_type_label', inquiryLabel);
+  fd.set('subject', `New website inquiry: ${inquiryLabel} — ${name}`);
+  fd.set('from_name', 'GMS Website');
+
+  const email = (fd.get('email') || '').toString().trim();
+  if (email) fd.set('replyto', email);
+
+  fd.set('page_url', window.location.href);
+  fd.set('page_title', document.title);
+
+  if (!fd.has('botcheck')) fd.set('botcheck', '');
+
+  return fd;
+}
+
+function showFormStatus(form, type, message) {
+  let status = form.querySelector('[data-form-status]');
+  if (!status) {
+    status = document.createElement('div');
+    status.setAttribute('data-form-status', '');
+    status.className = 'form-status';
+    const submitBtn = form.querySelector('button[type="submit"]');
+    if (submitBtn && submitBtn.parentNode) {
+      submitBtn.parentNode.insertBefore(status, submitBtn);
+    } else {
+      form.appendChild(status);
+    }
+  }
+  status.className = `form-status form-status--${type}`;
+  status.textContent = message;
+}
+
+function renderFormSuccess(form) {
+  const wrapper = document.createElement('div');
+  wrapper.className = 'form-success';
+  wrapper.setAttribute('role', 'status');
+  wrapper.innerHTML = `
+    <div class="form-success__icon" aria-hidden="true">
+      <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+        <polyline points="20 6 9 17 4 12"/>
+      </svg>
+    </div>
+    <div class="form-success__body">
+      <h3>Thanks — we received your message.</h3>
+      <p>Our team will get back to you shortly at the email you shared. For anything urgent, reach us at <a href="mailto:reach@gmscorporateservices.com" data-allow-copy>reach@gmscorporateservices.com</a>.</p>
+    </div>
+  `;
+  form.parentNode.replaceChild(wrapper, form);
 }
