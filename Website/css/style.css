@@ -919,6 +919,85 @@ p {
 }
 
 /* ==================================
+   FEEDBACK CARDS
+   ================================== */
+.feedbacks {
+  background: linear-gradient(135deg, #7A2225 0%, #2E1014 80%);
+  position: relative;
+  overflow: hidden;
+}
+
+.feedbacks::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  overflow: hidden;
+  background: radial-gradient(ellipse at -20% 50%, rgba(164, 41, 43, 0.32) 0%, transparent 60%);
+  pointer-events: none;
+}
+
+.feedbacks .container { position: relative; z-index: 1; }
+
+.feedbacks__label { color: var(--white); opacity: 0.7; }
+.feedbacks .section-header-split h2 { color: var(--white); }
+.feedbacks .section-header-split p { color: rgba(255,255,255,0.75); }
+
+.feedback-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 32px;
+}
+
+.feedback-card {
+  display: flex;
+  flex-direction: column;
+  background: var(--white);
+  border-radius: var(--radius-lg);
+  padding: 36px 32px;
+  box-shadow: var(--shadow-sm);
+  transition: all var(--transition-base);
+}
+
+.feedback-card:hover {
+  transform: translateY(-8px);
+  box-shadow: var(--shadow-lg);
+}
+
+.feedback-card__quote-mark {
+  font-family: Georgia, serif;
+  font-size: 3rem;
+  line-height: 1;
+  color: var(--blue-primary);
+  opacity: 0.25;
+  margin-bottom: 4px;
+}
+
+.feedback-card__tag {
+  font-size: 0.72rem;
+  font-weight: var(--fw-semi);
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--blue-primary);
+  margin-bottom: 14px;
+}
+
+.feedback-card__text {
+  font-size: 0.92rem;
+  color: var(--charcoal-light);
+  line-height: 1.75;
+  flex-grow: 1;
+  margin-bottom: 20px;
+}
+
+.feedback-card__author {
+  font-size: 0.88rem;
+  font-weight: var(--fw-semi);
+  color: var(--charcoal);
+  border-top: 1px solid var(--grey-light);
+  padding-top: 16px;
+}
+
+/* ==================================
    TEXT EFFECTS — Overlapping large text
    ================================== */
 .text-effect-section {
@@ -2444,6 +2523,7 @@ p {
     order: initial;
   }
   .services-grid { grid-template-columns: repeat(2, 1fr); }
+  .feedback-grid { grid-template-columns: repeat(2, 1fr); }
   .split { gap: 48px; }
   .footer__grid { grid-template-columns: 1fr 1fr; gap: 36px; }
   .section-header-split { gap: 32px; }
@@ -2510,6 +2590,7 @@ p {
 
   /* --- Service cards --- */
   .services-grid { grid-template-columns: 1fr; gap: 56px; }
+  .feedback-grid { grid-template-columns: 1fr; gap: 24px; }
   .service-card { padding-top: 100px; }
   .service-card__body p { font-size: 1rem; }
 
